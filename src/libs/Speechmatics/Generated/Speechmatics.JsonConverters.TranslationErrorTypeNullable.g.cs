@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace Speechmatics.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class TranslationErrorTypeNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Speechmatics.TranslationErrorType?>
+    {
+        /// <inheritdoc />
+        public override global::Speechmatics.TranslationErrorType? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::Speechmatics.TranslationErrorTypeExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::Speechmatics.TranslationErrorType)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Speechmatics.TranslationErrorType?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Speechmatics.TranslationErrorType? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Speechmatics.TranslationErrorTypeExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}

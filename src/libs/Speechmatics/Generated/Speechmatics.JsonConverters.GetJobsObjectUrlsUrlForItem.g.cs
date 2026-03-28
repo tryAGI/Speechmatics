@@ -1,0 +1,53 @@
+#nullable enable
+
+namespace Speechmatics.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class GetJobsObjectUrlsUrlForItemJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Speechmatics.GetJobsObjectUrlsUrlForItem>
+    {
+        /// <inheritdoc />
+        public override global::Speechmatics.GetJobsObjectUrlsUrlForItem Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::Speechmatics.GetJobsObjectUrlsUrlForItemExtensions.ToEnum(stringValue) ?? default;
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::Speechmatics.GetJobsObjectUrlsUrlForItem)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Speechmatics.GetJobsObjectUrlsUrlForItem);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Speechmatics.GetJobsObjectUrlsUrlForItem value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            writer.WriteStringValue(global::Speechmatics.GetJobsObjectUrlsUrlForItemExtensions.ToValueString(value));
+        }
+    }
+}
