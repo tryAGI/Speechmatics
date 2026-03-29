@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
+    <PackageId>tryAGI.Speechmatics</PackageId>
     <Description>C# SDK based on Speechmatics OpenAPI specification.</Description>
     <PackageTags>api;client;sdk;dotnet;swagger;openapi;specification;generated;nswag</PackageTags>
   </PropertyGroup>
