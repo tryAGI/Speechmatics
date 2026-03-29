@@ -98,18 +98,18 @@ namespace Speechmatics
         /// <param name="dataName">
         /// Name of the data file submitted for job.
         /// </param>
-        /// <param name="textName">
-        /// Name of the text file submitted to be aligned to audio.
-        /// </param>
-        /// <param name="duration">
-        /// The file duration (in seconds). May be missing for fetch URL jobs.
-        /// </param>
         /// <param name="id">
         /// The unique id assigned to the job.<br/>
         /// Example: a1b2c3d4e5
         /// </param>
         /// <param name="status">
         /// The status of the job. * `running` - The job is actively running. * `done` - The job completed successfully. * `rejected` - The job was accepted at first, but later could not be processed by the transcriber. * `deleted` - The user deleted the job. * `expired` - The system deleted the job. Usually because the job was in the `done` state for a very long time.
+        /// </param>
+        /// <param name="textName">
+        /// Name of the text file submitted to be aligned to audio.
+        /// </param>
+        /// <param name="duration">
+        /// The file duration (in seconds). May be missing for fetch URL jobs.
         /// </param>
         /// <param name="config">
         /// JSON object that contains various groups of job configuration<br/>
@@ -147,10 +147,10 @@ namespace Speechmatics
         {
             this.CreatedAt = createdAt;
             this.DataName = dataName ?? throw new global::System.ArgumentNullException(nameof(dataName));
-            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.Status = status;
             this.TextName = textName;
             this.Duration = duration;
+            this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Status = status;
             this.Config = config;
             this.Lang = lang;
             this.Errors = errors;

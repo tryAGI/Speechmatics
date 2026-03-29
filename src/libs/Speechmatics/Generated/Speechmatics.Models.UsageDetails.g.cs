@@ -60,18 +60,18 @@ namespace Speechmatics
         /// <summary>
         /// Initializes a new instance of the <see cref="UsageDetails" /> class.
         /// </summary>
-        /// <param name="mode"></param>
         /// <param name="type"></param>
-        /// <param name="language">
-        /// Example: en
-        /// </param>
-        /// <param name="operatingPoint"></param>
         /// <param name="count">
         /// Total number of billable jobs in this cycle
         /// </param>
         /// <param name="durationHrs">
         /// Total duration of billable jobs (in hours) this cycle
         /// </param>
+        /// <param name="mode"></param>
+        /// <param name="language">
+        /// Example: en
+        /// </param>
+        /// <param name="operatingPoint"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -83,12 +83,12 @@ namespace Speechmatics
             string? language,
             global::Speechmatics.OperatingPoint? operatingPoint)
         {
-            this.Type = type;
-            this.Count = count;
-            this.DurationHrs = durationHrs;
             this.Mode = mode;
+            this.Type = type;
             this.Language = language;
             this.OperatingPoint = operatingPoint;
+            this.Count = count;
+            this.DurationHrs = durationHrs;
         }
 
         /// <summary>
