@@ -49,11 +49,11 @@ namespace Speechmatics
         /// <summary>
         /// Initializes a new instance of the <see cref="LanguagePackInfo" /> class.
         /// </summary>
-        /// <param name="languageDescription">
-        /// Full descriptive name of the language, e.g. 'Japanese'.
-        /// </param>
         /// <param name="wordDelimiter">
         /// The character to use to separate words.
+        /// </param>
+        /// <param name="languageDescription">
+        /// Full descriptive name of the language, e.g. 'Japanese'.
         /// </param>
         /// <param name="writingDirection">
         /// The direction that words in the language should be written and read in.
@@ -74,8 +74,8 @@ namespace Speechmatics
             bool? itn,
             bool? adapted)
         {
-            this.WordDelimiter = wordDelimiter ?? throw new global::System.ArgumentNullException(nameof(wordDelimiter));
             this.LanguageDescription = languageDescription;
+            this.WordDelimiter = wordDelimiter ?? throw new global::System.ArgumentNullException(nameof(wordDelimiter));
             this.WritingDirection = writingDirection;
             this.Itn = itn;
             this.Adapted = adapted;

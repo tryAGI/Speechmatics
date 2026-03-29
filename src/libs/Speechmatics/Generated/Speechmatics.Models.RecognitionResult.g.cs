@@ -83,17 +83,17 @@ namespace Speechmatics
         /// <summary>
         /// Initializes a new instance of the <see cref="RecognitionResult" /> class.
         /// </summary>
-        /// <param name="channel"></param>
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
+        /// <param name="type">
+        /// New types of items may appear without being requested; unrecognized item types can be ignored.
+        /// </param>
+        /// <param name="channel"></param>
         /// <param name="volume">
         /// An indication of the volume of audio across the time period the word was spoken.
         /// </param>
         /// <param name="isEos">
         /// Whether the punctuation mark is an end of sentence character. Only applies to punctuation marks.
-        /// </param>
-        /// <param name="type">
-        /// New types of items may appear without being requested; unrecognized item types can be ignored.
         /// </param>
         /// <param name="writtenForm"></param>
         /// <param name="spokenForm"></param>
@@ -116,12 +116,12 @@ namespace Speechmatics
             global::System.Collections.Generic.IList<global::Speechmatics.RecognitionAlternative>? alternatives,
             global::Speechmatics.RecognitionResultAttachesTo? attachesTo)
         {
+            this.Channel = channel;
             this.StartTime = startTime;
             this.EndTime = endTime;
-            this.Type = type;
-            this.Channel = channel;
             this.Volume = volume;
             this.IsEos = isEos;
+            this.Type = type;
             this.WrittenForm = writtenForm;
             this.SpokenForm = spokenForm;
             this.Alternatives = alternatives;
