@@ -53,7 +53,7 @@ Console.WriteLine(response.Text);
 
 ### Accessing the Raw Transcript
 
-The raw Speechmatics transcript is available via `RawRepresentation` for advanced access to recognition results, speaker diarization, and other features:
+The raw Speechmatics transcript is available via `RawRepresentation` for advanced access to recognition results, speaker diarization, timestamps, and other provider-specific features:
 
 ```csharp
 ISpeechToTextClient sttClient = client;
@@ -65,7 +65,58 @@ Console.WriteLine(response.Text);
 
 // Access full Speechmatics transcript for recognition-level detail
 var raw = (TranscriptResponse)response.RawRepresentation!;
+Console.WriteLine($"Format: {raw.Format}");
 Console.WriteLine($"Results: {raw.Results?.Count}");
+
+// Iterate individual recognition results for word-level timestamps and confidence
+if (raw.Results is { Count: > 0 })
+{
+    foreach (var result in raw.Results)
+    {
+        if (result.Alternatives is { Count: > 0 })
+        {
+            var best = result.Alternatives[0];
+            Console.WriteLine($"  [{result.StartTime:F2}s - {result.EndTime:F2}s] " +
+                $"{best.Content} (confidence: {best.Confidence:P0}, speaker: {best.Speaker})");
+        }
+    }
+}
+```
+
+### Advanced Configuration with RawRepresentationFactory
+
+The Speechmatics batch API supports advanced features like diarization, summarization, translation, and custom vocabulary through the transcription config JSON. While the standard MEAI interface handles basic transcription, you can use `RawRepresentationFactory` to configure these features when submitting jobs directly via the client:
+
+```csharp
+// For advanced configuration, use the SpeechmaticsClient directly
+var speechmaticsClient = sttClient.GetService<SpeechmaticsClient>()!;
+
+// Submit a job with diarization, summarization, and custom vocabulary
+var configJson = """
+{
+    "type": "transcription",
+    "transcription_config": {
+        "language": "en",
+        "diarization": "speaker",
+        "additional_vocab": [
+            { "content": "Speechmatics", "sounds_like": ["speech matics"] }
+        ]
+    },
+    "summarization_config": {},
+    "sentiment_analysis_config": {}
+}
+""";
+
+using var audioStream = File.OpenRead("meeting.mp3");
+using var ms = new MemoryStream();
+await audioStream.CopyToAsync(ms);
+
+var job = await speechmaticsClient.CreateJobsAsync(
+    config: configJson,
+    dataFile: ms.ToArray(),
+    dataFilename: "meeting.mp3");
+
+Console.WriteLine($"Job submitted: {job.Id}");
 ```
 
 ### Accessing the Underlying Client
