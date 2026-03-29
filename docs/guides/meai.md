@@ -119,6 +119,15 @@ var job = await speechmaticsClient.CreateJobsAsync(
 Console.WriteLine($"Job submitted: {job.Id}");
 ```
 
+### Streaming Behavior
+
+`GetStreamingTextAsync` delegates to the non-streaming `GetTextAsync` method internally. The batch transcription job (submit + poll + get transcript) runs to completion first, and then the full result is yielded as a single `TextUpdated` update bracketed by `SessionOpen` and `SessionClose` events.
+
+This means you will not receive incremental transcription updates as audio is processed. The entire transcript is returned at once after the job finishes. For most use cases, calling `GetTextAsync` directly is equivalent and simpler.
+
+!!! note
+    Speechmatics does offer a real-time streaming WebSocket API, but it is not exposed through the MEAI `ISpeechToTextClient` interface. Use the `SpeechmaticsClient` directly for real-time streaming needs.
+
 ### Accessing the Underlying Client
 
 Retrieve the `SpeechmaticsClient` from the MEAI interface:
