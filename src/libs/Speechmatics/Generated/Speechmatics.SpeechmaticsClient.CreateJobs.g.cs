@@ -496,7 +496,6 @@ namespace Speechmatics
             string? textFilename = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Speechmatics.CreateJobsRequest
             {
                 Config = config,
