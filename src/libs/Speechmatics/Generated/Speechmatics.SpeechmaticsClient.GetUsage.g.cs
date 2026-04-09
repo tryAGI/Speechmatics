@@ -5,6 +5,25 @@ namespace Speechmatics
 {
     public partial class SpeechmaticsClient
     {
+
+
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetUsageSecurityRequirement0 =
+            new global::Speechmatics.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
+                {                    new global::Speechmatics.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetUsageSecurityRequirements =
+            new global::Speechmatics.EndPointSecurityRequirement[]
+            {                s_GetUsageSecurityRequirement0,
+            };
         partial void PrepareGetUsageArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.DateTime? since,
@@ -42,13 +61,19 @@ namespace Speechmatics
                 since: ref since,
                 until: ref until);
 
+
+            var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetUsageSecurityRequirements,
+                operationName: "GetUsageAsync");
+
             var __pathBuilder = new global::Speechmatics.PathBuilder(
                 path: "/usage",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("since", since?.ToString("yyyy-MM-dd"))
                 .AddOptionalParameter("until", until?.ToString("yyyy-MM-dd")) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -58,7 +83,7 @@ namespace Speechmatics
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

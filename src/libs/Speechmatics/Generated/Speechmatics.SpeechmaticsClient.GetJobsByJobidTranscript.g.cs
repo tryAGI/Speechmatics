@@ -5,6 +5,25 @@ namespace Speechmatics
 {
     public partial class SpeechmaticsClient
     {
+
+
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetJobsByJobidTranscriptSecurityRequirement0 =
+            new global::Speechmatics.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
+                {                    new global::Speechmatics.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetJobsByJobidTranscriptSecurityRequirements =
+            new global::Speechmatics.EndPointSecurityRequirement[]
+            {                s_GetJobsByJobidTranscriptSecurityRequirement0,
+            };
         partial void PrepareGetJobsByJobidTranscriptArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string jobid,
@@ -42,12 +61,18 @@ namespace Speechmatics
                 jobid: ref jobid,
                 format: ref format);
 
+
+            var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetJobsByJobidTranscriptSecurityRequirements,
+                operationName: "GetJobsByJobidTranscriptAsync");
+
             var __pathBuilder = new global::Speechmatics.PathBuilder(
                 path: $"/jobs/{jobid}/transcript",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("format", format?.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -57,7 +82,7 @@ namespace Speechmatics
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

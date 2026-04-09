@@ -6,6 +6,7 @@ namespace Speechmatics
     public sealed partial class SpeechmaticsClient
     {
         /// <inheritdoc cref="SpeechmaticsClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Speechmatics.EndPointAuthorization}?, bool)"/>
+
         public SpeechmaticsClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,
