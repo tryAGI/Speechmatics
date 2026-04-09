@@ -5,6 +5,25 @@ namespace Speechmatics
 {
     public partial class SpeechmaticsClient
     {
+
+
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetJobsSecurityRequirement0 =
+            new global::Speechmatics.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
+                {                    new global::Speechmatics.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetJobsSecurityRequirements =
+            new global::Speechmatics.EndPointSecurityRequirement[]
+            {                s_GetJobsSecurityRequirement0,
+            };
         partial void PrepareGetJobsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.DateTime? createdBefore,
@@ -54,6 +73,12 @@ namespace Speechmatics
                 limit: ref limit,
                 includeDeleted: ref includeDeleted);
 
+
+            var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetJobsSecurityRequirements,
+                operationName: "GetJobsAsync");
+
             var __pathBuilder = new global::Speechmatics.PathBuilder(
                 path: "/jobs",
                 baseUri: HttpClient.BaseAddress); 
@@ -61,7 +86,7 @@ namespace Speechmatics
                 .AddOptionalParameter("created_before", createdBefore?.ToString("yyyy-MM-ddTHH:mm:ssZ"))
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("include_deleted", includeDeleted?.ToString().ToLowerInvariant()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -71,7 +96,7 @@ namespace Speechmatics
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -5,6 +5,25 @@ namespace Speechmatics
 {
     public partial class SpeechmaticsClient
     {
+
+
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetJobsByJobidSecurityRequirement0 =
+            new global::Speechmatics.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
+                {                    new global::Speechmatics.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetJobsByJobidSecurityRequirements =
+            new global::Speechmatics.EndPointSecurityRequirement[]
+            {                s_GetJobsByJobidSecurityRequirement0,
+            };
         partial void PrepareGetJobsByJobidArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string jobid);
@@ -38,9 +57,15 @@ namespace Speechmatics
                 httpClient: HttpClient,
                 jobid: ref jobid);
 
+
+            var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetJobsByJobidSecurityRequirements,
+                operationName: "GetJobsByJobidAsync");
+
             var __pathBuilder = new global::Speechmatics.PathBuilder(
                 path: $"/jobs/{jobid}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -50,7 +75,7 @@ namespace Speechmatics
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

@@ -5,6 +5,25 @@ namespace Speechmatics
 {
     public partial class SpeechmaticsClient
     {
+
+
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_CreateJobsSecurityRequirement0 =
+            new global::Speechmatics.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
+                {                    new global::Speechmatics.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_CreateJobsSecurityRequirements =
+            new global::Speechmatics.EndPointSecurityRequirement[]
+            {                s_CreateJobsSecurityRequirement0,
+            };
         partial void PrepareCreateJobsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xSmProcessingData,
@@ -65,9 +84,15 @@ namespace Speechmatics
                 xSmProcessingData: ref xSmProcessingData,
                 request: request);
 
+
+            var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_CreateJobsSecurityRequirements,
+                operationName: "CreateJobsAsync");
+
             var __pathBuilder = new global::Speechmatics.PathBuilder(
                 path: "/jobs",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -77,7 +102,7 @@ namespace Speechmatics
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
