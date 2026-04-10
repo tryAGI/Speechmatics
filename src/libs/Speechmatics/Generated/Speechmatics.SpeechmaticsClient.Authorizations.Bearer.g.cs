@@ -25,6 +25,7 @@ namespace Speechmatics
             Authorizations.Add(new global::Speechmatics.EndPointAuthorization
             {
                 Type = "Http",
+                SchemeId = "HttpBearer",
                 Location = "Header",
                 Name = "Bearer",
                 Value = apiKey,
