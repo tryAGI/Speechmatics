@@ -142,10 +142,10 @@ namespace Speechmatics
                 } 
             }
 
-                if (xSmProcessingData != default)
-                {
-                    __httpRequest.Headers.TryAddWithoutValidation("X-SM-Processing-Data", xSmProcessingData.ToString());
-                }
+            if (xSmProcessingData != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("X-SM-Processing-Data", xSmProcessingData.ToString());
+            }
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             if (xSmProcessingData != default)
