@@ -132,7 +132,7 @@ namespace Speechmatics
                 PrepareGetJobsByJobidTranscriptRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobid: jobid,
+                    jobid: jobid!,
                     format: format);
 
                 return __httpRequest;

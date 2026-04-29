@@ -133,7 +133,7 @@ namespace Speechmatics
                 PrepareDeleteJobsByJobidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobid: jobid,
+                    jobid: jobid!,
                     force: force);
 
                 return __httpRequest;

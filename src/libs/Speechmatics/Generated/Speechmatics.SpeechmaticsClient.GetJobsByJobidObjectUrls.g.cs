@@ -139,9 +139,9 @@ namespace Speechmatics
                 PrepareGetJobsByJobidObjectUrlsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobid: jobid,
-                    ttl: ttl,
-                    urlFor: urlFor);
+                    jobid: jobid!,
+                    ttl: ttl!,
+                    urlFor: urlFor!);
 
                 return __httpRequest;
             }

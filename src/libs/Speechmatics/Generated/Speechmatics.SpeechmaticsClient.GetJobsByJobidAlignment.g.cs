@@ -132,7 +132,7 @@ namespace Speechmatics
                 PrepareGetJobsByJobidAlignmentRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobid: jobid,
+                    jobid: jobid!,
                     tags: tags);
 
                 return __httpRequest;
