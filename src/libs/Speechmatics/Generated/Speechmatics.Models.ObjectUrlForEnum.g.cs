@@ -6,7 +6,7 @@ namespace Speechmatics
     /// <summary>
     /// 
     /// </summary>
-    public enum GetJobsObjectUrlsUrlForItem
+    public enum ObjectUrlForEnum
     {
         /// <summary>
         /// 
@@ -25,31 +25,31 @@ namespace Speechmatics
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class GetJobsObjectUrlsUrlForItemExtensions
+    public static class ObjectUrlForEnumExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this GetJobsObjectUrlsUrlForItem value)
+        public static string ToValueString(this ObjectUrlForEnum value)
         {
             return value switch
             {
-                GetJobsObjectUrlsUrlForItem.AudioMp3 => "audio_mp3",
-                GetJobsObjectUrlsUrlForItem.Data => "data",
-                GetJobsObjectUrlsUrlForItem.Transcript => "transcript",
+                ObjectUrlForEnum.AudioMp3 => "audio_mp3",
+                ObjectUrlForEnum.Data => "data",
+                ObjectUrlForEnum.Transcript => "transcript",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static GetJobsObjectUrlsUrlForItem? ToEnum(string value)
+        public static ObjectUrlForEnum? ToEnum(string value)
         {
             return value switch
             {
-                "audio_mp3" => GetJobsObjectUrlsUrlForItem.AudioMp3,
-                "data" => GetJobsObjectUrlsUrlForItem.Data,
-                "transcript" => GetJobsObjectUrlsUrlForItem.Transcript,
+                "audio_mp3" => ObjectUrlForEnum.AudioMp3,
+                "data" => ObjectUrlForEnum.Data,
+                "transcript" => ObjectUrlForEnum.Transcript,
                 _ => null,
             };
         }

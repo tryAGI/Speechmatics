@@ -29,13 +29,13 @@ namespace Speechmatics
             global::System.Net.Http.HttpClient httpClient,
             ref string jobid,
             ref int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor);
+            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor);
         partial void PrepareGetJobsByJobidObjectUrlsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string jobid,
             int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor);
+            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor);
         partial void ProcessGetJobsByJobidObjectUrlsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,7 +58,7 @@ namespace Speechmatics
         public async global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveObjectUrlsResponse> GetJobsByJobidObjectUrlsAsync(
             string jobid,
             int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor,
+            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +85,7 @@ namespace Speechmatics
         public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveObjectUrlsResponse>> GetJobsByJobidObjectUrlsAsResponseAsync(
             string jobid,
             int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor,
+            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

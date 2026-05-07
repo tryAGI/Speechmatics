@@ -113,6 +113,10 @@ namespace Speechmatics
 
             typeof(global::Speechmatics.JsonConverters.JobModeNullableJsonConverter),
 
+            typeof(global::Speechmatics.JsonConverters.ObjectUrlForEnumJsonConverter),
+
+            typeof(global::Speechmatics.JsonConverters.ObjectUrlForEnumNullableJsonConverter),
+
             typeof(global::Speechmatics.JsonConverters.GetJobsTranscriptFormatJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.GetJobsTranscriptFormatNullableJsonConverter),
@@ -120,10 +124,6 @@ namespace Speechmatics
             typeof(global::Speechmatics.JsonConverters.GetJobsAlignmentTagsJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.GetJobsAlignmentTagsNullableJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsObjectUrlsUrlForItemJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsObjectUrlsUrlForItemNullableJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.UnixTimestampJsonConverter),
         })]
@@ -260,12 +260,12 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.UsageDetails>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.UsageDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.RetrieveObjectUrlsResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.ObjectUrlForEnum), TypeInfoPropertyName = "ObjectUrlForEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsTranscriptFormat), TypeInfoPropertyName = "GetJobsTranscriptFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsAlignmentTags), TypeInfoPropertyName = "GetJobsAlignmentTags2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsObjectUrlsUrlForItem), TypeInfoPropertyName = "GetJobsObjectUrlsUrlForItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.TranscriptionConfigAdditionalVocabItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.TranscriptionConfigTranscriptFilteringConfigReplacement>))]
@@ -296,7 +296,7 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.LanguageIdentificationResultItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.LanguageIdentificationResultAlternative>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.UsageDetails>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.GetJobsObjectUrlsUrlForItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.ObjectUrlForEnum>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

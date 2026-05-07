@@ -3,10 +3,10 @@
 namespace Speechmatics.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GetJobsObjectUrlsUrlForItemJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Speechmatics.GetJobsObjectUrlsUrlForItem>
+    public sealed class ObjectUrlForEnumNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Speechmatics.ObjectUrlForEnum?>
     {
         /// <inheritdoc />
-        public override global::Speechmatics.GetJobsObjectUrlsUrlForItem Read(
+        public override global::Speechmatics.ObjectUrlForEnum? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Speechmatics.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Speechmatics.GetJobsObjectUrlsUrlForItemExtensions.ToEnum(stringValue) ?? default;
+                        return global::Speechmatics.ObjectUrlForEnumExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Speechmatics.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Speechmatics.GetJobsObjectUrlsUrlForItem)numValue;
+                    return (global::Speechmatics.ObjectUrlForEnum)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Speechmatics.GetJobsObjectUrlsUrlForItem);
+                    return default(global::Speechmatics.ObjectUrlForEnum?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace Speechmatics.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Speechmatics.GetJobsObjectUrlsUrlForItem value,
+            global::Speechmatics.ObjectUrlForEnum? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::Speechmatics.GetJobsObjectUrlsUrlForItemExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Speechmatics.ObjectUrlForEnumExtensions.ToValueString(value.Value));
+            }
         }
     }
 }
