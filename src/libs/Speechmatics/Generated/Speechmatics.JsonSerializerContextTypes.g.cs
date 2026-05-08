@@ -556,27 +556,27 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.ObjectUrlForEnum? Type132 { get; set; }
+        public global::Speechmatics.CreateJobsRequest? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.CreateJobsRequest? Type133 { get; set; }
+        public byte[]? Type133 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type134 { get; set; }
+        public global::Speechmatics.GetJobsTranscriptFormat? Type134 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.GetJobsTranscriptFormat? Type135 { get; set; }
+        public global::Speechmatics.GetJobsAlignmentTags? Type135 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.GetJobsAlignmentTags? Type136 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem>? Type136 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum>? Type137 { get; set; }
+        public global::Speechmatics.GetJobsObjectUrlsUrlForItem? Type137 { get; set; }
 
         /// <summary>
         /// 
@@ -701,6 +701,6 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.List<global::Speechmatics.ObjectUrlForEnum>? ListType30 { get; set; }
+        public global::System.Collections.Generic.List<global::Speechmatics.GetJobsObjectUrlsUrlForItem>? ListType30 { get; set; }
     }
 }
