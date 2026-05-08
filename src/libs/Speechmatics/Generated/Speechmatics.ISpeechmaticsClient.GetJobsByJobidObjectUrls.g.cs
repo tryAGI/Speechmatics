@@ -17,7 +17,7 @@ namespace Speechmatics
         global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveObjectUrlsResponse> GetJobsByJobidObjectUrlsAsync(
             string jobid,
             int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor,
+            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -33,7 +33,7 @@ namespace Speechmatics
         global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveObjectUrlsResponse>> GetJobsByJobidObjectUrlsAsResponseAsync(
             string jobid,
             int ttl,
-            global::System.Collections.Generic.IList<global::Speechmatics.ObjectUrlForEnum> urlFor,
+            global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem> urlFor,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
