@@ -54,5 +54,6 @@ namespace Speechmatics
         public TranscriptionConfigTranscriptFilteringConfigReplacement()
         {
         }
+
     }
 }

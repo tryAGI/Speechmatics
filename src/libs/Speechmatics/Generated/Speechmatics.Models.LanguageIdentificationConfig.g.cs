@@ -60,5 +60,6 @@ namespace Speechmatics
         public LanguageIdentificationConfig()
         {
         }
+
     }
 }

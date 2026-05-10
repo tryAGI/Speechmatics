@@ -86,5 +86,6 @@ namespace Speechmatics
         public CreateJobsRequest()
         {
         }
+
     }
 }

@@ -42,5 +42,6 @@ namespace Speechmatics
         public SentimentAnalysisResult()
         {
         }
+
     }
 }

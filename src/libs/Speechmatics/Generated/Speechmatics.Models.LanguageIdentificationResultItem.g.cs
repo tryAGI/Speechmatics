@@ -57,5 +57,6 @@ namespace Speechmatics
         public LanguageIdentificationResultItem()
         {
         }
+
     }
 }

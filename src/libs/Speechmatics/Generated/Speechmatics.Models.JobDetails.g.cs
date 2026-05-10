@@ -162,5 +162,6 @@ namespace Speechmatics
         public JobDetails()
         {
         }
+
     }
 }

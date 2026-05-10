@@ -74,5 +74,6 @@ namespace Speechmatics
         public Chapter()
         {
         }
+
     }
 }

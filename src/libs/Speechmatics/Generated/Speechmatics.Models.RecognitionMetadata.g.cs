@@ -181,5 +181,6 @@ namespace Speechmatics
         public RecognitionMetadata()
         {
         }
+
     }
 }

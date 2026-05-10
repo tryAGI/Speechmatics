@@ -76,5 +76,6 @@ namespace Speechmatics
         public UsageResponse()
         {
         }
+
     }
 }

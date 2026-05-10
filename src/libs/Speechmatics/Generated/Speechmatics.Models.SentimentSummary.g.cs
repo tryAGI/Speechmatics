@@ -63,5 +63,6 @@ namespace Speechmatics
         public SentimentSummary()
         {
         }
+
     }
 }

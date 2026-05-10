@@ -78,5 +78,6 @@ namespace Speechmatics
         public SummarizationConfig()
         {
         }
+
     }
 }
