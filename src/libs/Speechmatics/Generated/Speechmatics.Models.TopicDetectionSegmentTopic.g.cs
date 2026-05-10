@@ -39,5 +39,6 @@ namespace Speechmatics
         public TopicDetectionSegmentTopic()
         {
         }
+
     }
 }

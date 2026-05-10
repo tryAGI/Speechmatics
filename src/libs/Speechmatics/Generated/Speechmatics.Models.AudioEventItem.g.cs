@@ -85,5 +85,6 @@ namespace Speechmatics
         public AudioEventItem()
         {
         }
+
     }
 }

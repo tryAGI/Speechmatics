@@ -73,5 +73,6 @@ namespace Speechmatics
         public SpokenFormRecognitionResult()
         {
         }
+
     }
 }

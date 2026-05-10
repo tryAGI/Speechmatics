@@ -116,5 +116,6 @@ namespace Speechmatics
         public NotificationConfig()
         {
         }
+
     }
 }

@@ -134,5 +134,6 @@ namespace Speechmatics
         public RecognitionResult()
         {
         }
+
     }
 }
