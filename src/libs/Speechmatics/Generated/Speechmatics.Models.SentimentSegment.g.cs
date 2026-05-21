@@ -107,5 +107,6 @@ namespace Speechmatics
         public SentimentSegment()
         {
         }
+
     }
 }

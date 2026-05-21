@@ -189,5 +189,6 @@ namespace Speechmatics
         public JobConfig()
         {
         }
+
     }
 }

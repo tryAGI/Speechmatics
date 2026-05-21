@@ -42,6 +42,40 @@ namespace Speechmatics
         /// Create a new job
         /// </summary>
         /// <param name="xSmProcessingData"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Speechmatics.ApiException"></exception>
+        /// <remarks>
+        /// import { BatchClient } from "@speechmatics/batch-client";<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
+        /// // This is to get a File handle in NodeJS<br/>
+        /// // In the browser, you can pass a File object from a form input, or similar<br/>
+        /// const blob = await openAsBlob("PATH_TO_FILE");<br/>
+        /// const file = new File([blob], "your_filename");<br/>
+        /// const response = await client.createTranscriptionJob({<br/>
+        ///   file,<br/>
+        ///   config: {<br/>
+        ///     type: "transcription",<br/>
+        ///     transcription_config: {<br/>
+        ///       operating_point: "enhanced",<br/>
+        ///       language: "en",<br/>
+        ///     },<br/>
+        ///   },<br/>
+        /// });<br/>
+        /// const json = await response.json();<br/>
+        /// console.log(json);
+        /// </remarks>
+        global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.CreateJobResponse>> CreateJobsAsResponseAsync(
+
+            global::Speechmatics.CreateJobsRequest request,
+            string? xSmProcessingData = default,
+            global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a new job
+        /// </summary>
+        /// <param name="xSmProcessingData"></param>
         /// <param name="config">
         /// JSON containing a [`JobConfig`](/speech-to-text/batch/input#jobconfig-schema) model indicating the type and parameters for the recognition job.
         /// </param>

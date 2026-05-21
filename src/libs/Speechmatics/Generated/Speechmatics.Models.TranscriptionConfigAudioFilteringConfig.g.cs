@@ -41,5 +41,6 @@ namespace Speechmatics
         public TranscriptionConfigAudioFilteringConfig()
         {
         }
+
     }
 }

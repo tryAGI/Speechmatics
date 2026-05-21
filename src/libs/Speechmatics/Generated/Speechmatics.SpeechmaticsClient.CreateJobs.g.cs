@@ -78,6 +78,51 @@ namespace Speechmatics
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await CreateJobsAsResponseAsync(
+
+                request: request,
+                xSmProcessingData: xSmProcessingData,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// Create a new job
+        /// </summary>
+        /// <param name="xSmProcessingData"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Speechmatics.ApiException"></exception>
+        /// <remarks>
+        /// import { BatchClient } from "@speechmatics/batch-client";<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
+        /// // This is to get a File handle in NodeJS<br/>
+        /// // In the browser, you can pass a File object from a form input, or similar<br/>
+        /// const blob = await openAsBlob("PATH_TO_FILE");<br/>
+        /// const file = new File([blob], "your_filename");<br/>
+        /// const response = await client.createTranscriptionJob({<br/>
+        ///   file,<br/>
+        ///   config: {<br/>
+        ///     type: "transcription",<br/>
+        ///     transcription_config: {<br/>
+        ///       operating_point: "enhanced",<br/>
+        ///       language: "en",<br/>
+        ///     },<br/>
+        ///   },<br/>
+        /// });<br/>
+        /// const json = await response.json();<br/>
+        /// console.log(json);
+        /// </remarks>
+        public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.CreateJobResponse>> CreateJobsAsResponseAsync(
+
+            global::Speechmatics.CreateJobsRequest request,
+            string? xSmProcessingData = default,
+            global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
 
             PrepareArguments(
@@ -105,10 +150,11 @@ namespace Speechmatics
             var __maxAttempts = global::Speechmatics.AutoSDKRequestOptionsSupport.GetMaxAttempts(
                 clientOptions: Options,
                 requestOptions: requestOptions,
-                supportsRetry: true);
+                supportsRetry: false);
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Speechmatics.PathBuilder(
                                 path: "/jobs",
                                 baseUri: HttpClient.BaseAddress);
@@ -147,6 +193,7 @@ namespace Speechmatics
                 __httpRequest.Headers.TryAddWithoutValidation("X-SM-Processing-Data", xSmProcessingData.ToString());
             }
 
+
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
                             if (xSmProcessingData != default)
                             {
@@ -154,10 +201,12 @@ namespace Speechmatics
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(xSmProcessingData ?? string.Empty),
                                     name: "\"X-SM-Processing-Data\"");
+
                             }
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.Config ?? string.Empty),
                                 name: "\"config\"");
+
                             if (request.DataFile != default)
                             {
 
@@ -198,7 +247,8 @@ namespace Speechmatics
                                 {
                                     __contentDataFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
-                            } 
+
+                            }
                             if (request.TextFile != default)
                             {
 
@@ -239,8 +289,11 @@ namespace Speechmatics
                                 {
                                     __contentTextFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
+
                             }
+
                             __httpRequest.Content = __httpRequestContent;
+
                 global::Speechmatics.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -283,6 +336,8 @@ namespace Speechmatics
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -293,6 +348,11 @@ namespace Speechmatics
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Speechmatics.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -310,6 +370,8 @@ namespace Speechmatics
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -319,8 +381,7 @@ namespace Speechmatics
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -329,6 +390,11 @@ namespace Speechmatics
                         __attempt < __maxAttempts &&
                         global::Speechmatics.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Speechmatics.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -345,14 +411,15 @@ namespace Speechmatics
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -392,6 +459,8 @@ namespace Speechmatics
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -412,6 +481,8 @@ namespace Speechmatics
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Bad request
@@ -659,9 +730,13 @@ namespace Speechmatics
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::Speechmatics.CreateJobResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Speechmatics.CreateJobResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.CreateJobResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Speechmatics.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -689,9 +764,13 @@ namespace Speechmatics
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::Speechmatics.CreateJobResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Speechmatics.CreateJobResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.CreateJobResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Speechmatics.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

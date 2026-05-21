@@ -87,5 +87,6 @@ namespace Speechmatics
         public RecognitionAlternative()
         {
         }
+
     }
 }

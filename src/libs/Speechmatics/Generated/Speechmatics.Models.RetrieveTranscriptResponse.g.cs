@@ -182,5 +182,6 @@ namespace Speechmatics
         public RetrieveTranscriptResponse()
         {
         }
+
     }
 }

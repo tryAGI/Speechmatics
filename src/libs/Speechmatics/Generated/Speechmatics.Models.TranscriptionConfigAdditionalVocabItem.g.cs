@@ -49,5 +49,6 @@ namespace Speechmatics
         public TranscriptionConfigAdditionalVocabItem()
         {
         }
+
     }
 }
