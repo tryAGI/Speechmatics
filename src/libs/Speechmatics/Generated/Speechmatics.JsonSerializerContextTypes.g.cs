@@ -60,51 +60,51 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.AlignmentConfig? Type8 { get; set; }
+        public global::Speechmatics.TranslationError? Type8 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TranslationError? Type9 { get; set; }
+        public global::Speechmatics.TranslationErrorType? Type9 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TranslationErrorType? Type10 { get; set; }
+        public global::Speechmatics.SummarizationError? Type10 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SummarizationError? Type11 { get; set; }
+        public global::Speechmatics.SummarizationErrorType? Type11 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SummarizationErrorType? Type12 { get; set; }
+        public global::Speechmatics.SentimentAnalysisError? Type12 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentAnalysisError? Type13 { get; set; }
+        public global::Speechmatics.SentimentAnalysisErrorType? Type13 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentAnalysisErrorType? Type14 { get; set; }
+        public global::Speechmatics.TopicDetectionError? Type14 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionError? Type15 { get; set; }
+        public global::Speechmatics.TopicDetectionErrorType? Type15 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionErrorType? Type16 { get; set; }
+        public global::Speechmatics.AutoChaptersResultError? Type16 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.AutoChaptersResultError? Type17 { get; set; }
+        public global::Speechmatics.AutoChaptersResultErrorType? Type17 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.AutoChaptersResultErrorType? Type18 { get; set; }
+        public global::Speechmatics.TranscriptionConfig? Type18 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TranscriptionConfig? Type19 { get; set; }
+        public global::Speechmatics.Model? Type19 { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -552,31 +552,15 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RetrieveObjectUrlsResponse? Type131 { get; set; }
+        public global::Speechmatics.CreateJobsRequest? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.CreateJobsRequest? Type132 { get; set; }
+        public byte[]? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type133 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Speechmatics.GetJobsTranscriptFormat? Type134 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Speechmatics.GetJobsAlignmentTags? Type135 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem>? Type136 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::Speechmatics.GetJobsObjectUrlsUrlForItem? Type137 { get; set; }
+        public global::Speechmatics.GetJobsTranscriptFormat? Type133 { get; set; }
 
         /// <summary>
         /// 
@@ -698,9 +682,5 @@ namespace Speechmatics
         /// 
         /// </summary>
         public global::System.Collections.Generic.List<global::Speechmatics.UsageDetails>? ListType29 { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        public global::System.Collections.Generic.List<global::Speechmatics.GetJobsObjectUrlsUrlForItem>? ListType30 { get; set; }
     }
 }

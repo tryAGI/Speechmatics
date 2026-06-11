@@ -7,8 +7,7 @@ namespace Speechmatics
     /// Choose from three options:<br/>
     /// - `conversational` - Best suited for dialogues involving multiple participants, such as calls, meetings or discussions. It focuses on summarizing key points of the conversation.<br/>
     /// - `informative` - Recommended for more structured information delivered by one or more people, making it ideal for videos, podcasts, lectures, and presentations.<br/>
-    /// - `auto` - Automatically selects the most appropriate content type based on an analysis of the transcript.<br/>
-    /// Default Value: auto
+    /// - `auto` - Automatically selects the most appropriate content type based on an analysis of the transcript.
     /// </summary>
     public enum SummarizationConfigContentType
     {

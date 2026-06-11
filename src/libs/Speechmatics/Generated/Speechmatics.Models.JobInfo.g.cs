@@ -41,12 +41,6 @@ namespace Speechmatics
         public required string Id { get; set; }
 
         /// <summary>
-        /// Name of the text file submitted to be aligned to audio.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("text_name")]
-        public string? TextName { get; set; }
-
-        /// <summary>
         /// Example: {"title":"ACME Q12018 Earnings Call","reference":"/data/clients/ACME/statements/segs/2018Q1-seg8","tags":["quick-review","segment"],"details":{"client":"ACME Corp","segment":8,"seg_start":963.201,"seg_end":1091.481}}
         /// </summary>
         /// <example>{"title":"ACME Q12018 Earnings Call","reference":"/data/clients/ACME/statements/segs/2018Q1-seg8","tags":["quick-review","segment"],"details":{"client":"ACME Corp","segment":8,"seg_start":963.201,"seg_end":1091.481}}</example>
@@ -76,9 +70,6 @@ namespace Speechmatics
         /// The unique id assigned to the job.<br/>
         /// Example: a1b2c3d4e5
         /// </param>
-        /// <param name="textName">
-        /// Name of the text file submitted to be aligned to audio.
-        /// </param>
         /// <param name="tracking">
         /// Example: {"title":"ACME Q12018 Earnings Call","reference":"/data/clients/ACME/statements/segs/2018Q1-seg8","tags":["quick-review","segment"],"details":{"client":"ACME Corp","segment":8,"seg_start":963.201,"seg_end":1091.481}}
         /// </param>
@@ -90,14 +81,12 @@ namespace Speechmatics
             string dataName,
             int duration,
             string id,
-            string? textName,
             global::Speechmatics.TrackingData? tracking)
         {
             this.CreatedAt = createdAt;
             this.DataName = dataName ?? throw new global::System.ArgumentNullException(nameof(dataName));
             this.Duration = duration;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
-            this.TextName = textName;
             this.Tracking = tracking;
         }
 

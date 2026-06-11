@@ -43,10 +43,6 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        JobIsNotOfTypeAlignment,
-        /// <summary>
-        /// 
-        /// </summary>
         JobIsNotOfTypeTranscription,
         /// <summary>
         /// 
@@ -75,15 +71,15 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
+        MaxConcurrentRunningJobsExceeded,
+        /// <summary>
+        /// 
+        /// </summary>
         MissingCallback,
         /// <summary>
         /// 
         /// </summary>
         MissingDataFile,
-        /// <summary>
-        /// 
-        /// </summary>
-        MissingTextFile,
         /// <summary>
         /// 
         /// </summary>
@@ -96,10 +92,6 @@ namespace Speechmatics
         /// 
         /// </summary>
         PermissionDenied,
-        /// <summary>
-        /// 
-        /// </summary>
-        RequestedEarlyAccessReleaseNotAvailable,
         /// <summary>
         /// 
         /// </summary>
@@ -138,7 +130,6 @@ namespace Speechmatics
                 ErrorResponseError.JobExpired => "Job Expired",
                 ErrorResponseError.JobInProgress => "Job In Progress",
                 ErrorResponseError.JobError => "Job error",
-                ErrorResponseError.JobIsNotOfTypeAlignment => "Job is not of type alignment",
                 ErrorResponseError.JobIsNotOfTypeTranscription => "Job is not of type transcription",
                 ErrorResponseError.JobNotFound => "Job not found",
                 ErrorResponseError.JobRejected => "Job rejected",
@@ -146,13 +137,12 @@ namespace Speechmatics
                 ErrorResponseError.JobRejectedDueToInvalidText => "Job rejected due to invalid text",
                 ErrorResponseError.LogFileNotAvailable => "Log file not available",
                 ErrorResponseError.MalformedRequest => "Malformed request",
+                ErrorResponseError.MaxConcurrentRunningJobsExceeded => "Max concurrent running jobs exceeded",
                 ErrorResponseError.MissingCallback => "Missing callback",
                 ErrorResponseError.MissingDataFile => "Missing data_file",
-                ErrorResponseError.MissingTextFile => "Missing text_file",
                 ErrorResponseError.NoLanguageSelected => "No language selected",
                 ErrorResponseError.NotImplemented => "Not Implemented",
                 ErrorResponseError.PermissionDenied => "Permission Denied",
-                ErrorResponseError.RequestedEarlyAccessReleaseNotAvailable => "Requested Early Access Release not available",
                 ErrorResponseError.RequestedProductNotAvailable => "Requested product not available",
                 ErrorResponseError.ResourceLocked => "Resource Locked",
                 ErrorResponseError.TranscriptionNotReady => "Transcription not ready",
@@ -175,7 +165,6 @@ namespace Speechmatics
                 "Job Expired" => ErrorResponseError.JobExpired,
                 "Job In Progress" => ErrorResponseError.JobInProgress,
                 "Job error" => ErrorResponseError.JobError,
-                "Job is not of type alignment" => ErrorResponseError.JobIsNotOfTypeAlignment,
                 "Job is not of type transcription" => ErrorResponseError.JobIsNotOfTypeTranscription,
                 "Job not found" => ErrorResponseError.JobNotFound,
                 "Job rejected" => ErrorResponseError.JobRejected,
@@ -183,13 +172,12 @@ namespace Speechmatics
                 "Job rejected due to invalid text" => ErrorResponseError.JobRejectedDueToInvalidText,
                 "Log file not available" => ErrorResponseError.LogFileNotAvailable,
                 "Malformed request" => ErrorResponseError.MalformedRequest,
+                "Max concurrent running jobs exceeded" => ErrorResponseError.MaxConcurrentRunningJobsExceeded,
                 "Missing callback" => ErrorResponseError.MissingCallback,
                 "Missing data_file" => ErrorResponseError.MissingDataFile,
-                "Missing text_file" => ErrorResponseError.MissingTextFile,
                 "No language selected" => ErrorResponseError.NoLanguageSelected,
                 "Not Implemented" => ErrorResponseError.NotImplemented,
                 "Permission Denied" => ErrorResponseError.PermissionDenied,
-                "Requested Early Access Release not available" => ErrorResponseError.RequestedEarlyAccessReleaseNotAvailable,
                 "Requested product not available" => ErrorResponseError.RequestedProductNotAvailable,
                 "Resource Locked" => ErrorResponseError.ResourceLocked,
                 "Transcription not ready" => ErrorResponseError.TranscriptionNotReady,

@@ -109,6 +109,10 @@ namespace Speechmatics
 
             typeof(global::Speechmatics.JsonConverters.OperatingPointNullableJsonConverter),
 
+            typeof(global::Speechmatics.JsonConverters.ModelJsonConverter),
+
+            typeof(global::Speechmatics.JsonConverters.ModelNullableJsonConverter),
+
             typeof(global::Speechmatics.JsonConverters.JobModeJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.JobModeNullableJsonConverter),
@@ -116,14 +120,6 @@ namespace Speechmatics
             typeof(global::Speechmatics.JsonConverters.GetJobsTranscriptFormatJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.GetJobsTranscriptFormatNullableJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsAlignmentTagsJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsAlignmentTagsNullableJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsObjectUrlsUrlForItemJsonConverter),
-
-            typeof(global::Speechmatics.JsonConverters.GetJobsObjectUrlsUrlForItemNullableJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.UnixTimestampJsonConverter),
         })]
@@ -136,7 +132,6 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.DataFetchConfig))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.AlignmentConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.TranslationError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.TranslationErrorType), TypeInfoPropertyName = "TranslationErrorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.SummarizationError))]
@@ -148,6 +143,7 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.AutoChaptersResultError))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.AutoChaptersResultErrorType), TypeInfoPropertyName = "AutoChaptersResultErrorType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.TranscriptionConfig))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.Model), TypeInfoPropertyName = "Model2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.OperatingPoint), TypeInfoPropertyName = "OperatingPoint2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.TranscriptionConfigAdditionalVocabItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.TranscriptionConfigAdditionalVocabItem))]
@@ -259,13 +255,9 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.UsageResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.UsageDetails>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.UsageDetails))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.RetrieveObjectUrlsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsTranscriptFormat), TypeInfoPropertyName = "GetJobsTranscriptFormat2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsAlignmentTags), TypeInfoPropertyName = "GetJobsAlignmentTags2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.GetJobsObjectUrlsUrlForItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsObjectUrlsUrlForItem), TypeInfoPropertyName = "GetJobsObjectUrlsUrlForItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.TranscriptionConfigAdditionalVocabItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.TranscriptionConfigTranscriptFilteringConfigReplacement>))]
@@ -296,7 +288,6 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.LanguageIdentificationResultItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.LanguageIdentificationResultAlternative>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.UsageDetails>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.GetJobsObjectUrlsUrlForItem>))]
     public sealed partial class SourceGenerationContext : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }

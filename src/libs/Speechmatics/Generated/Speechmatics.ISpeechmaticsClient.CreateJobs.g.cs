@@ -24,7 +24,7 @@ namespace Speechmatics
         ///   config: {<br/>
         ///     type: "transcription",<br/>
         ///     transcription_config: {<br/>
-        ///       operating_point: "enhanced",<br/>
+        ///       model: "enhanced",<br/>
         ///       language: "en",<br/>
         ///     },<br/>
         ///   },<br/>
@@ -58,7 +58,7 @@ namespace Speechmatics
         ///   config: {<br/>
         ///     type: "transcription",<br/>
         ///     transcription_config: {<br/>
-        ///       operating_point: "enhanced",<br/>
+        ///       model: "enhanced",<br/>
         ///       language: "en",<br/>
         ///     },<br/>
         ///   },<br/>
@@ -77,19 +77,13 @@ namespace Speechmatics
         /// </summary>
         /// <param name="xSmProcessingData"></param>
         /// <param name="config">
-        /// JSON containing a [`JobConfig`](/speech-to-text/batch/input#jobconfig-schema) model indicating the type and parameters for the recognition job.
+        /// JSON containing a `JobConfig` model indicating the type and parameters for the recognition job.
         /// </param>
         /// <param name="dataFile">
         /// The data file to be processed. Alternatively the data file can be fetched from a url specified in `JobConfig`.
         /// </param>
         /// <param name="dataFilename">
         /// The data file to be processed. Alternatively the data file can be fetched from a url specified in `JobConfig`.
-        /// </param>
-        /// <param name="textFile">
-        /// For alignment jobs, the text file that the data file should be aligned to.
-        /// </param>
-        /// <param name="textFilename">
-        /// For alignment jobs, the text file that the data file should be aligned to.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -99,8 +93,6 @@ namespace Speechmatics
             string? xSmProcessingData = default,
             byte[]? dataFile = default,
             string? dataFilename = default,
-            byte[]? textFile = default,
-            string? textFilename = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

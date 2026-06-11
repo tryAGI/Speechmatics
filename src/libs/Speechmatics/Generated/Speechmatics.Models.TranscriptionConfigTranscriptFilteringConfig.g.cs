@@ -4,18 +4,18 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// Configuration for applying filtering to the transcription.
+    /// Configuration for applying filtering to the transcription
     /// </summary>
     public sealed partial class TranscriptionConfigTranscriptFilteringConfig
     {
         /// <summary>
-        /// If true, words identified as disfluencies (e.g., 'um', 'uh') will be removed from the transcript. If false (default), they are tagged in the transcript as 'disfluency'.
+        /// If true, words that are identified as disfluencies will be removed from the transcript. If false (default), they are tagged in the transcript as 'disfluency'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("remove_disfluencies")]
         public bool? RemoveDisfluencies { get; set; }
 
         /// <summary>
-        /// An array of objects defining custom replacements. Each replacement contains a pair of strings: the text to find ("from:") and the text to replace it with ("to:").
+        /// An array of objects defining custom replacements. Each replacement contains a pair of strings: the text to find `from` and the text to replace it with `to`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("replacements")]
         public global::System.Collections.Generic.IList<global::Speechmatics.TranscriptionConfigTranscriptFilteringConfigReplacement>? Replacements { get; set; }
@@ -30,10 +30,10 @@ namespace Speechmatics
         /// Initializes a new instance of the <see cref="TranscriptionConfigTranscriptFilteringConfig" /> class.
         /// </summary>
         /// <param name="removeDisfluencies">
-        /// If true, words identified as disfluencies (e.g., 'um', 'uh') will be removed from the transcript. If false (default), they are tagged in the transcript as 'disfluency'.
+        /// If true, words that are identified as disfluencies will be removed from the transcript. If false (default), they are tagged in the transcript as 'disfluency'.
         /// </param>
         /// <param name="replacements">
-        /// An array of objects defining custom replacements. Each replacement contains a pair of strings: the text to find ("from:") and the text to replace it with ("to:").
+        /// An array of objects defining custom replacements. Each replacement contains a pair of strings: the text to find `from` and the text to replace it with `to`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

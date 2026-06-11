@@ -63,7 +63,7 @@ namespace Speechmatics
         ///   config: {<br/>
         ///     type: "transcription",<br/>
         ///     transcription_config: {<br/>
-        ///       operating_point: "enhanced",<br/>
+        ///       model: "enhanced",<br/>
         ///       language: "en",<br/>
         ///     },<br/>
         ///   },<br/>
@@ -108,7 +108,7 @@ namespace Speechmatics
         ///   config: {<br/>
         ///     type: "transcription",<br/>
         ///     transcription_config: {<br/>
-        ///       operating_point: "enhanced",<br/>
+        ///       model: "enhanced",<br/>
         ///       language: "en",<br/>
         ///     },<br/>
         ///   },<br/>
@@ -246,48 +246,6 @@ namespace Speechmatics
                                 if (__contentDataFile.Headers.ContentDisposition != null)
                                 {
                                     __contentDataFile.Headers.ContentDisposition.FileNameStar = null;
-                                }
-
-                            }
-                            if (request.TextFile != default)
-                            {
-
-                                var __contentTextFile = new global::System.Net.Http.ByteArrayContent(request.TextFile ?? global::System.Array.Empty<byte>());
-                                __contentTextFile.Headers.ContentType = new global::System.Net.Http.Headers.MediaTypeHeaderValue(
-                                    request.TextFilename is null
-                                        ? "application/octet-stream"
-                                        : (global::System.IO.Path.GetExtension(request.TextFilename) ?? string.Empty).ToLowerInvariant() switch
-                                        {
-                                            ".aac" => "audio/aac",
-                                            ".flac" => "audio/flac",
-                                            ".gif" => "image/gif",
-                                            ".jpeg" => "image/jpeg",
-                                            ".jpg" => "image/jpeg",
-                                            ".json" => "application/json",
-                                            ".m4a" => "audio/mp4",
-                                            ".mp3" => "audio/mpeg",
-                                            ".mp4" => "video/mp4",
-                                            ".mpeg" => "audio/mpeg",
-                                            ".mpga" => "audio/mpeg",
-                                            ".oga" => "audio/ogg",
-                                            ".ogg" => "audio/ogg",
-                                            ".opus" => "audio/ogg",
-                                            ".pdf" => "application/pdf",
-                                            ".png" => "image/png",
-                                            ".txt" => "text/plain",
-                                            ".wav" => "audio/wav",
-                                            ".weba" => "audio/webm",
-                                            ".webm" => "video/webm",
-                                            ".webp" => "image/webp",
-                                            _ => "application/octet-stream",
-                                        });
-                                __httpRequestContent.Add(
-                                    content: __contentTextFile,
-                                    name: "\"text_file\"",
-                                    fileName: request.TextFilename != null ? $"\"{request.TextFilename}\"" : string.Empty);
-                                if (__contentTextFile.Headers.ContentDisposition != null)
-                                {
-                                    __contentTextFile.Headers.ContentDisposition.FileNameStar = null;
                                 }
 
                             }
@@ -596,57 +554,24 @@ namespace Speechmatics
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Gone
-                            if ((int)__response.StatusCode == 410)
-                            {
-                                string? __content_410 = null;
-                                global::System.Exception? __exception_410 = null;
-                                global::Speechmatics.ErrorResponse? __value_410 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_410 = global::Speechmatics.ErrorResponse.FromJson(__content_410, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_410 = global::Speechmatics.ErrorResponse.FromJson(__content_410, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_410 = __ex;
-                                }
-
-
-                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_410 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_410,
-                                    responseBody: __content_410,
-                                    responseObject: __value_410,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Rate Limited
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;
                                 global::System.Exception? __exception_429 = null;
+                                global::Speechmatics.ErrorResponse? __value_429 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = global::Speechmatics.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = global::Speechmatics.ErrorResponse.FromJson(__content_429, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -655,11 +580,12 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException.Create(
+                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
                                     responseBody: __content_429,
+                                    responseObject: __value_429,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -803,19 +729,13 @@ namespace Speechmatics
         /// </summary>
         /// <param name="xSmProcessingData"></param>
         /// <param name="config">
-        /// JSON containing a [`JobConfig`](/speech-to-text/batch/input#jobconfig-schema) model indicating the type and parameters for the recognition job.
+        /// JSON containing a `JobConfig` model indicating the type and parameters for the recognition job.
         /// </param>
         /// <param name="dataFile">
         /// The data file to be processed. Alternatively the data file can be fetched from a url specified in `JobConfig`.
         /// </param>
         /// <param name="dataFilename">
         /// The data file to be processed. Alternatively the data file can be fetched from a url specified in `JobConfig`.
-        /// </param>
-        /// <param name="textFile">
-        /// For alignment jobs, the text file that the data file should be aligned to.
-        /// </param>
-        /// <param name="textFilename">
-        /// For alignment jobs, the text file that the data file should be aligned to.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -825,8 +745,6 @@ namespace Speechmatics
             string? xSmProcessingData = default,
             byte[]? dataFile = default,
             string? dataFilename = default,
-            byte[]? textFile = default,
-            string? textFilename = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -835,8 +753,6 @@ namespace Speechmatics
                 Config = config,
                 DataFile = dataFile,
                 DataFilename = dataFilename,
-                TextFile = textFile,
-                TextFilename = textFilename,
             };
 
             return await CreateJobsAsync(
