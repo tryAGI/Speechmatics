@@ -4,7 +4,7 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// A WrittenFormRecognitionResult describes a simple object which consists solely of 'word' type entries with a start and end time. It can occur only inside the written_form property of a full RecognitionResult"
+    /// A WrittenFormRecognitionResult describes a simple object which consists solely of 'word' type entries with a start and end time. It can occur only inside the written_form property of a full RecognitionResult'
     /// </summary>
     public sealed partial class WrittenFormRecognitionResult
     {

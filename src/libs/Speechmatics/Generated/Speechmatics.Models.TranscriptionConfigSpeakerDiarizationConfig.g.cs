@@ -9,7 +9,7 @@ namespace Speechmatics
     public sealed partial class TranscriptionConfigSpeakerDiarizationConfig
     {
         /// <summary>
-        /// If true, the algorithm will prefer to stay with the current active speaker if it is a close enough match, even if other speakers may be closer.  This is useful for cases where we can flip incorrectly between similar speakers during a single speaker section."
+        /// If true, the algorithm will prefer to stay with the current active speaker if it is a close enough match, even if other speakers may be closer.  This is useful for cases where we can flip incorrectly between similar speakers during a single speaker section.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prefer_current_speaker")]
         public bool? PreferCurrentSpeaker { get; set; }
@@ -42,7 +42,7 @@ namespace Speechmatics
         /// Initializes a new instance of the <see cref="TranscriptionConfigSpeakerDiarizationConfig" /> class.
         /// </summary>
         /// <param name="preferCurrentSpeaker">
-        /// If true, the algorithm will prefer to stay with the current active speaker if it is a close enough match, even if other speakers may be closer.  This is useful for cases where we can flip incorrectly between similar speakers during a single speaker section."
+        /// If true, the algorithm will prefer to stay with the current active speaker if it is a close enough match, even if other speakers may be closer.  This is useful for cases where we can flip incorrectly between similar speakers during a single speaker section.
         /// </param>
         /// <param name="speakerSensitivity">
         /// Controls how sensitive the algorithm is in terms of keeping similar speakers separate, as opposed to combining them into a single speaker.  Higher values will typically lead to more speakers, as the degree of difference between speakers in order to allow them to remain distinct will be lower.  A lower value for this parameter will conversely guide the algorithm towards being less sensitive in terms of retaining similar speakers, and as such may lead to fewer speakers overall.  The default is 0.5.

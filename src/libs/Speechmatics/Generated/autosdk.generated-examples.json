@@ -6,7 +6,7 @@
       "Slug": "create-a-new-job",
       "Description": "Generated from OpenAPI examples.",
       "Language": "http",
-      "Code": "### Create a new job\nPOST {{host}}/jobs\nAuthorization: Bearer {{token}}\nX-SM-Processing-Data: {{X-SM-Processing-Data}}\nContent-Type: multipart/form-data\nAccept: application/json, application/vnd.speechmatics.v2\u002Bjson\n\n## Responses\n# 201\n# Description: OK\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 400\n# Description: Bad request\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 403\n# Description: Forbidden\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 410\n# Description: Gone\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson",
+      "Code": "### Create a new job\nPOST {{host}}/jobs\nAuthorization: Bearer {{token}}\nX-SM-Processing-Data: {{X-SM-Processing-Data}}\nContent-Type: multipart/form-data\nAccept: application/json, application/vnd.speechmatics.v2\u002Bjson\n\n## Responses\n# 201\n# Description: OK\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 400\n# Description: Bad request\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 403\n# Description: Forbidden\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, application/vnd.speechmatics.v2\u002Bjson",
       "Format": "http",
       "OperationId": "createJobs",
       "Setup": null
@@ -46,28 +46,6 @@
     },
     {
       "Order": 5,
-      "Title": "Get the aligned text file for an alignment job.",
-      "Slug": "get-the-aligned-text-file-for-an-alignment-job",
-      "Description": "Generated from OpenAPI examples.",
-      "Language": "http",
-      "Code": "### Get the aligned text file for an alignment job.\nGET {{host}}/jobs/{{jobid}}/alignment?tags=word_start_and_end\nAuthorization: Bearer {{token}}\nAccept: application/json, one_per_line, text/plain, word_start_and_end\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, one_per_line, text/plain, word_start_and_end\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, text/plain\n# 404\n# Description: Not found\n# Content-Type: application/json, text/plain\n# 410\n# Description: Gone\n# Content-Type: application/json, text/plain\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, text/plain\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, text/plain",
-      "Format": "http",
-      "OperationId": "getJobsByJobidAlignment",
-      "Setup": null
-    },
-    {
-      "Order": 6,
-      "Title": "Get the data file used as input to a job.",
-      "Slug": "get-the-data-file-used-as-input-to-a-job",
-      "Description": "Generated from OpenAPI examples.",
-      "Language": "http",
-      "Code": "### Get the data file used as input to a job.\nGET {{host}}/jobs/{{jobid}}/data\nAuthorization: Bearer {{token}}\nAccept: application/json, application/octet-stream\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, application/octet-stream\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, application/octet-stream\n# 404\n# Description: Not found\n# Content-Type: application/json, application/octet-stream\n# 410\n# Description: Gone\n# Content-Type: application/json, application/octet-stream\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, application/octet-stream\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, application/octet-stream",
-      "Format": "http",
-      "OperationId": "getJobsByJobidData",
-      "Setup": null
-    },
-    {
-      "Order": 7,
       "Title": "Get the log file for a job.",
       "Slug": "get-the-log-file-for-a-job",
       "Description": "Generated from OpenAPI examples.",
@@ -78,29 +56,7 @@
       "Setup": null
     },
     {
-      "Order": 8,
-      "Title": "Get object URLs",
-      "Slug": "get-object-urls",
-      "Description": "Get signed urls for data files associated to the job.",
-      "Language": "http",
-      "Code": "### Get object URLs\nGET {{host}}/jobs/{{jobid}}/object-urls?ttl={{ttl}}\u0026url_for={{url_for}}\nAuthorization: Bearer {{token}}\nAccept: application/json, application/octet-stream\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, application/octet-stream\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, application/octet-stream\n# 404\n# Description: Not found\n# Content-Type: application/json, application/octet-stream\n# 410\n# Description: Gone\n# Content-Type: application/json, application/octet-stream\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, application/octet-stream\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, application/octet-stream",
-      "Format": "http",
-      "OperationId": "getJobsByJobidObjectUrls",
-      "Setup": null
-    },
-    {
-      "Order": 9,
-      "Title": "Get the text file used as input to an alignment job.",
-      "Slug": "get-the-text-file-used-as-input-to-an-alignment-job",
-      "Description": "Generated from OpenAPI examples.",
-      "Language": "http",
-      "Code": "### Get the text file used as input to an alignment job.\nGET {{host}}/jobs/{{jobid}}/text\nAuthorization: Bearer {{token}}\nAccept: application/json, text/plain\n\n## Responses\n# 200\n# Description: OK\n# Content-Type: application/json, text/plain\n# 401\n# Description: Unauthorized\n# Content-Type: application/json, text/plain\n# 404\n# Description: Not found\n# Content-Type: application/json, text/plain\n# 410\n# Description: Gone\n# Content-Type: application/json, text/plain\n# 429\n# Description: Rate Limited\n# Content-Type: application/json, text/plain\n# 500\n# Description: Internal Server Error\n# Content-Type: application/json, text/plain",
-      "Format": "http",
-      "OperationId": "getJobsByJobidText",
-      "Setup": null
-    },
-    {
-      "Order": 10,
+      "Order": 6,
       "Title": "Get the transcript for a transcription job",
       "Slug": "get-the-transcript-for-a-transcription-job",
       "Description": "Generated from OpenAPI examples.",
@@ -111,12 +67,12 @@
       "Setup": null
     },
     {
-      "Order": 11,
+      "Order": 7,
       "Title": "Get usage statistics",
       "Slug": "get-usage-statistics",
       "Description": "Generated from OpenAPI examples.",
       "Language": "csharp",
-      "Code": "using var client = new SpeechmaticsClient(apiKey);\nvar response = await client.GetUsageAsync();\n\n// Example response:\n// {\n//   \u0022since\u0022: \u00222021-09-12 00:00:00\\u002B00:00\u0022,\n//   \u0022until\u0022: \u00222022-01-01 23:59:59\\u002B00:00\u0022,\n//   \u0022summary\u0022: [\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022count\u0022: 5,\n//       \u0022duration_hrs\u0022: 1.53\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022alignment\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.1\n//     }\n//   ],\n//   \u0022details\u0022: [\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022language\u0022: \u0022sv\u0022,\n//       \u0022operating_point\u0022: \u0022standard\u0022,\n//       \u0022count\u0022: 4,\n//       \u0022duration_hrs\u0022: 1.33\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022language\u0022: \u0022de\u0022,\n//       \u0022operating_point\u0022: \u0022enhanced\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.2\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022alignment\u0022,\n//       \u0022language\u0022: \u0022en\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.1\n//     }\n//   ]\n// }",
+      "Code": "using var client = new SpeechmaticsClient(apiKey);\nvar response = await client.GetUsageAsync();\n\n// Example response:\n// {\n//   \u0022since\u0022: \u00222021-09-12 00:00:00\\u002B00:00\u0022,\n//   \u0022until\u0022: \u00222022-01-01 23:59:59\\u002B00:00\u0022,\n//   \u0022summary\u0022: [\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022count\u0022: 5,\n//       \u0022duration_hrs\u0022: 1.53\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022alignment\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.1\n//     }\n//   ],\n//   \u0022details\u0022: [\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022language\u0022: \u0022sv\u0022,\n//       \u0022model\u0022: \u0022standard\u0022,\n//       \u0022count\u0022: 4,\n//       \u0022duration_hrs\u0022: 1.33\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022transcription\u0022,\n//       \u0022language\u0022: \u0022de\u0022,\n//       \u0022model\u0022: \u0022enhanced\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.2\n//     },\n//     {\n//       \u0022mode\u0022: \u0022batch\u0022,\n//       \u0022type\u0022: \u0022alignment\u0022,\n//       \u0022language\u0022: \u0022en\u0022,\n//       \u0022count\u0022: 1,\n//       \u0022duration_hrs\u0022: 0.1\n//     }\n//   ]\n// }",
       "Format": "sdk",
       "OperationId": "getUsage",
       "Setup": "This example assumes \u0060using Speechmatics;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."

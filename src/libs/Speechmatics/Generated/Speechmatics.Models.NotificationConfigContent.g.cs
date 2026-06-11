@@ -11,18 +11,6 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        Alignment,
-        /// <summary>
-        /// 
-        /// </summary>
-        AlignmentOnePerLine,
-        /// <summary>
-        /// 
-        /// </summary>
-        AlignmentWordStartAndEnd,
-        /// <summary>
-        /// 
-        /// </summary>
         Data,
         /// <summary>
         /// 
@@ -62,9 +50,6 @@ namespace Speechmatics
         {
             return value switch
             {
-                NotificationConfigContent.Alignment => "alignment",
-                NotificationConfigContent.AlignmentOnePerLine => "alignment.one_per_line",
-                NotificationConfigContent.AlignmentWordStartAndEnd => "alignment.word_start_and_end",
                 NotificationConfigContent.Data => "data",
                 NotificationConfigContent.Jobinfo => "jobinfo",
                 NotificationConfigContent.Text => "text",
@@ -82,9 +67,6 @@ namespace Speechmatics
         {
             return value switch
             {
-                "alignment" => NotificationConfigContent.Alignment,
-                "alignment.one_per_line" => NotificationConfigContent.AlignmentOnePerLine,
-                "alignment.word_start_and_end" => NotificationConfigContent.AlignmentWordStartAndEnd,
                 "data" => NotificationConfigContent.Data,
                 "jobinfo" => NotificationConfigContent.Jobinfo,
                 "text" => NotificationConfigContent.Text,

@@ -45,7 +45,8 @@ namespace Speechmatics
         public string? Channel { get; set; }
 
         /// <summary>
-        /// A confidence score in the range of 0-1
+        /// A confidence score in the range of 0-1,<br/>
+        /// indicating the model's certainty in the predicted sentiment,
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("confidence")]
         public float? Confidence { get; set; }
@@ -78,7 +79,8 @@ namespace Speechmatics
         /// The channel label for the segment, if channel diarization is enabled
         /// </param>
         /// <param name="confidence">
-        /// A confidence score in the range of 0-1
+        /// A confidence score in the range of 0-1,<br/>
+        /// indicating the model's certainty in the predicted sentiment,
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

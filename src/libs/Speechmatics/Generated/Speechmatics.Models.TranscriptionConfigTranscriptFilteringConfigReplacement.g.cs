@@ -9,14 +9,14 @@ namespace Speechmatics
     public sealed partial class TranscriptionConfigTranscriptFilteringConfigReplacement
     {
         /// <summary>
-        /// The text or pattern identified to be replaced.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string From { get; set; }
 
         /// <summary>
-        /// The corrected or formatted string to appear in the transcript.
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -31,12 +31,8 @@ namespace Speechmatics
         /// <summary>
         /// Initializes a new instance of the <see cref="TranscriptionConfigTranscriptFilteringConfigReplacement" /> class.
         /// </summary>
-        /// <param name="from">
-        /// The text or pattern identified to be replaced.
-        /// </param>
-        /// <param name="to">
-        /// The corrected or formatted string to appear in the transcript.
-        /// </param>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
