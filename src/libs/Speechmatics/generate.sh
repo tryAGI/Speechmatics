@@ -1,11 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# OpenAPI spec: https://docs.speechmatics.com/batch.yaml (Swagger 2.0)
+install_autosdk_cli() {
+  dotnet tool update --global autosdk.cli --prerelease >/dev/null 2>&1 || \
+    dotnet tool install --global autosdk.cli --prerelease
+}
 
-dotnet tool install --global autosdk.cli --prerelease
+fetch_spec() {
+  curl "$@" \
+    --fail --silent --show-error --location \
+    --retry 5 --retry-delay 10 --retry-all-errors \
+    --connect-timeout 30 --max-time 300
+}
+
+# OpenAPI spec: https://docs.speechmatics.com/batch.yaml (Swagger 2.0)
+install_autosdk_cli
 rm -rf Generated
-curl --fail --silent --show-error -o openapi.yaml https://docs.speechmatics.com/batch.yaml
+fetch_spec --fail --silent --show-error -o openapi.yaml https://docs.speechmatics.com/batch.yaml
 
 # Fix the Swagger 2.0 spec:
 # 1. Fix basePath (full URL -> path only) and add host/schemes
