@@ -27,7 +27,7 @@ namespace Speechmatics
         public double? StartTime { get; set; }
 
         /// <summary>
-        /// The end time of the chapter in the audio file
+        /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         public double? EndTime { get; set; }
@@ -50,9 +50,7 @@ namespace Speechmatics
         /// <param name="startTime">
         /// The start time of the chapter in the audio file
         /// </param>
-        /// <param name="endTime">
-        /// The end time of the chapter in the audio file
-        /// </param>
+        /// <param name="endTime"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif

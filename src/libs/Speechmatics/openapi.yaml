@@ -13,6 +13,14 @@ schemes:
 produces:
 - application/json
 - application/vnd.speechmatics.v2+json
+securityDefinitions:
+  BearerAuth:
+    type: apiKey
+    in: header
+    name: Authorization
+    description: Bearer token authentication
+security:
+- BearerAuth: []
 paths:
   /jobs:
     post:
@@ -23,19 +31,13 @@ paths:
       - name: config
         in: formData
         type: string
-        description: JSON containing a [`JobConfig`](/speech-to-text/batch/input#jobconfig-schema)
-          model indicating the type and parameters for the recognition job.
+        description: JSON containing a `JobConfig` model indicating the type and parameters
+          for the recognition job.
         required: true
       - name: data_file
         in: formData
         description: The data file to be processed. Alternatively the data file can
           be fetched from a url specified in `JobConfig`.
-        required: false
-        type: file
-      - name: text_file
-        in: formData
-        description: For alignment jobs, the text file that the data file should be
-          aligned to.
         required: false
         type: file
       - name: X-SM-Processing-Data
@@ -78,16 +80,14 @@ paths:
             application/json:
               code: 403
               error: Invalid or missing license
-        '410':
-          description: Gone
+        '429':
+          description: Rate Limited
           schema:
             $ref: '#/definitions/ErrorResponse'
           examples:
             application/json:
-              code: 410
-              error: Requested Early Access Release not available
-        '429':
-          description: Rate Limited
+              code: 429
+              error: Max concurrent running jobs exceeded
         '500':
           description: Internal Server Error
           schema:
@@ -104,7 +104,7 @@ paths:
           \ object from a form input, or similar\nconst blob = await openAsBlob(\"\
           PATH_TO_FILE\");\nconst file = new File([blob], \"your_filename\");\n\n\
           const response = await client.createTranscriptionJob({\n  file,\n  config:\
-          \ {\n    type: \"transcription\",\n    transcription_config: {\n      operating_point:\
+          \ {\n    type: \"transcription\",\n    transcription_config: {\n      model:\
           \ \"enhanced\",\n      language: \"en\",\n    },\n  },\n});\n\nconst json\
           \ = await response.json();\nconsole.log(json);\n"
       - lang: Python
@@ -124,7 +124,7 @@ paths:
 
           -F data_file=@${PATH_TO_FILE} \
 
-          -F config=''{"type": "transcription","transcription_config": { "operating_point":"enhanced",
+          -F config=''{"type": "transcription","transcription_config": { "model":"enhanced",
           "language": "en" }}''
 
           '
@@ -145,7 +145,8 @@ paths:
         type: integer
         maximum: 100
         minimum: 1
-        description: Limit for paginating the request response. Defaults to 100.
+        description: Limit on the number of items returned. By default, no limit is
+          applied.
         required: false
       - name: include_deleted
         in: query
@@ -326,112 +327,6 @@ paths:
             application/json:
               code: 500
               error: Internal Server Error
-  /jobs/{jobid}/data:
-    get:
-      summary: Get the data file used as input to a job.
-      produces:
-      - application/octet-stream
-      - application/json
-      parameters:
-      - name: jobid
-        in: path
-        description: ID of the job.
-        required: true
-        type: string
-        x-example: a1b2c3d4e5
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: file
-        '401':
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 401
-              error: Permission Denied
-        '404':
-          description: Not found
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 404
-              error: Job not found
-        '410':
-          description: Gone
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 410
-              error: File Expired
-              detail: File deleted from the storage
-        '429':
-          description: Rate Limited
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 500
-              error: Internal Server Error
-  /jobs/{jobid}/text:
-    get:
-      summary: Get the text file used as input to an alignment job.
-      produces:
-      - text/plain
-      - application/json
-      parameters:
-      - name: jobid
-        in: path
-        description: ID of the job.
-        required: true
-        type: string
-        x-example: a1b2c3d4e5
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: file
-        '401':
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 401
-              error: Permission Denied
-        '404':
-          description: Not found
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 404
-              error: Job not found
-        '410':
-          description: Gone
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 410
-              error: File Expired
-              detail: File deleted from the storage
-        '429':
-          description: Rate Limited
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 500
-              error: Internal Server Error
   /jobs/{jobid}/transcript:
     get:
       summary: Get the transcript for a transcription job
@@ -574,81 +469,6 @@ paths:
             application/json:
               code: 500
               error: Internal Server Error
-  /jobs/{jobid}/alignment:
-    get:
-      summary: Get the aligned text file for an alignment job.
-      produces:
-      - text/plain
-      - application/json
-      parameters:
-      - name: jobid
-        in: path
-        description: ID of the job.
-        required: true
-        type: string
-        x-example: a1b2c3d4e5
-      - name: tags
-        in: query
-        description: Control how timing information is added to the text file provided
-          as input to the alignment job. If set to `word_start_and_end`, SGML tags
-          are inserted at the start and end of each word, for example <time=0.41>.
-          If set to `one_per_line` square bracket tags are inserted at the start of
-          each line, for example `[00:00:00.4] `. The default is `word_start_and_end`.
-        required: false
-        type: string
-        enum:
-        - word_start_and_end
-        - one_per_line
-      responses:
-        '200':
-          description: OK
-          schema:
-            type: file
-          examples:
-            word_start_and_end: '<time=0.41>hello<time=0.76> <time=0.89>world<time=1.18>
-
-              '
-            one_per_line: '[00:00:00.4]    hello world
-
-              '
-        '401':
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 401
-              error: Permission Denied
-        '404':
-          description: Not found
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 404
-              error: Job not found
-        '410':
-          description: Gone
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 410
-              error: File Expired
-              detail: File deleted from the storage
-        '429':
-          description: Rate Limited
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 500
-              error: Internal Server Error
-      externalDocs:
-        description: More details of our alignment service can be found here.
-        url: https://docs.speechmatics.com/speech-to-text/batch/word-alignment
   /jobs/{jobid}/log:
     get:
       summary: Get the log file for a job.
@@ -716,75 +536,6 @@ paths:
             application/json:
               code: 501
               error: Not Implemented
-  /jobs/{jobid}/object-urls:
-    get:
-      summary: Get object URLs
-      description: Get signed urls for data files associated to the job.
-      produces:
-      - application/octet-stream
-      - application/json
-      parameters:
-      - name: jobid
-        in: path
-        description: ID of the job.
-        required: true
-        type: string
-        x-example: a1b2c3d4e5
-      - name: ttl
-        in: query
-        required: true
-        type: integer
-        description: Time to live in seconds for the signed URLs
-      - name: url_for
-        in: query
-        required: true
-        type: array
-        items:
-          type: string
-          enum:
-          - data
-          - audio_mp3
-          - transcript
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/RetrieveObjectUrlsResponse'
-        '401':
-          description: Unauthorized
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 401
-              error: Permission Denied
-        '404':
-          description: Not found
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 404
-              error: Job not found
-        '410':
-          description: Gone
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 410
-              error: File Expired
-              detail: File deleted from the storage
-        '429':
-          description: Rate Limited
-        '500':
-          description: Internal Server Error
-          schema:
-            $ref: '#/definitions/ErrorResponse'
-          examples:
-            application/json:
-              code: 500
-              error: Internal Server Error
   /usage:
     get:
       summary: Get usage statistics
@@ -827,13 +578,13 @@ paths:
               - mode: batch
                 type: transcription
                 language: sv
-                operating_point: standard
+                model: standard
                 count: 4
                 duration_hrs: 1.33
               - mode: batch
                 type: transcription
                 language: de
-                operating_point: enhanced
+                model: enhanced
                 count: 1
                 duration_hrs: 0.2
               - mode: batch
@@ -879,7 +630,6 @@ definitions:
         - Job error
         - Job Expired
         - Job In Progress
-        - Job is not of type alignment
         - Job is not of type transcription
         - Job not found
         - Job rejected
@@ -888,20 +638,20 @@ definitions:
         - Malformed request
         - Missing callback
         - Missing data_file
-        - Missing text_file
         - No language selected
         - Not Implemented
         - Permission Denied
         - Requested product not available
         - Transcription not ready
         - Log file not available
-        - Requested Early Access Release not available
         - Unprocessable Entity
+        - Max concurrent running jobs exceeded
       detail:
         type: string
         description: The details of the error.
     title: ErrorResponse
   TrackingData:
+    type: object
     properties:
       title:
         type: string
@@ -932,6 +682,7 @@ definitions:
   DataFetchConfig:
     required:
     - url
+    type: object
     properties:
       url:
         type: string
@@ -944,16 +695,8 @@ definitions:
           when using http or https. This is intended to support authentication or
           authorization, for example by supplying an OAuth2 bearer token.
     title: DataFetchConfig
-  AlignmentConfig:
-    required:
-    - language
-    properties:
-      language:
-        type: string
-    example:
-      language: en
-    title: AlignmentConfig
   TranslationError:
+    type: object
     properties:
       type:
         type: string
@@ -965,6 +708,7 @@ definitions:
         description: Human readable error message
     title: TranslationError
   SummarizationError:
+    type: object
     properties:
       type:
         type: string
@@ -976,6 +720,7 @@ definitions:
         description: Human readable error message
     title: SummarizationError
   SentimentAnalysisError:
+    type: object
     properties:
       type:
         type: string
@@ -987,6 +732,7 @@ definitions:
         description: Human readable error message
     title: SentimentAnalysisError
   TopicDetectionError:
+    type: object
     properties:
       type:
         type: string
@@ -999,6 +745,7 @@ definitions:
         description: Human readable error message
     title: TopicDetectionError
   AutoChaptersResultError:
+    type: object
     properties:
       type:
         type: string
@@ -1021,17 +768,18 @@ definitions:
       domain:
         type: string
         description: Request a specialized model based on 'language' but optimized
-          for a particular field, e.g. "finance" or "medical".
+          for a particular field, e.g. 'finance' or 'medical'.
       output_locale:
         type: string
         description: Language locale to be used when generating the transcription
           output, normally specified as an ISO language code
+      model:
+        $ref: '#/definitions/Model'
       operating_point:
         $ref: '#/definitions/OperatingPoint'
-        description: "Specify an operating point to use.\nOperating points change\
-          \ the transcription process in a high level way, such as altering the acoustic\
-          \ model.\nThe default is `standard`.\n  - `standard`:\n  - `enhanced`: transcription\
-          \ will take longer but be more accurate than 'standard'"
+        deprecated: true
+        description: '**Deprecated**: Use `model` instead. `operating_point` is left
+          only for backward compatibility.'
       additional_vocab:
         type: array
         x-omitempty: true
@@ -1050,6 +798,7 @@ definitions:
         description: List of custom words or phrases that should be recognized. Alternative
           pronunciations can be specified to aid recognition.
       punctuation_overrides:
+        type: object
         properties:
           sensitivity:
             type: number
@@ -1124,14 +873,14 @@ definitions:
               then most sound will be passed to the speech recognition engine. Higher
               numbers will cut out increasing amounts of sound.
       transcript_filtering_config:
+        description: Configuration for applying filtering to the transcription
         type: object
-        description: Configuration for applying filtering to the transcription.
         properties:
           remove_disfluencies:
             type: boolean
-            description: If true, words identified as disfluencies (e.g., 'um', 'uh')
-              will be removed from the transcript. If false (default), they are tagged
-              in the transcript as 'disfluency'.
+            description: If true, words that are identified as disfluencies will be
+              removed from the transcript. If false (default), they are tagged in
+              the transcript as 'disfluency'.
           replacements:
             type: array
             x-omitempty: true
@@ -1144,23 +893,21 @@ definitions:
               properties:
                 from:
                   type: string
-                  description: The text or pattern identified to be replaced.
                 to:
                   type: string
-                  description: The corrected or formatted string to appear in the
-                    transcript.
             description: 'An array of objects defining custom replacements. Each replacement
-              contains a pair of strings: the text to find ("from:") and the text
-              to replace it with ("to:").'
+              contains a pair of strings: the text to find `from` and the text to
+              replace it with `to`.'
       speaker_diarization_config:
         description: Configuration for speaker diarization
+        type: object
         properties:
           prefer_current_speaker:
             type: boolean
             description: If true, the algorithm will prefer to stay with the current
               active speaker if it is a close enough match, even if other speakers
               may be closer.  This is useful for cases where we can flip incorrectly
-              between similar speakers during a single speaker section."
+              between similar speakers during a single speaker section.
           speaker_sensitivity:
             type: number
             format: float
@@ -1210,10 +957,9 @@ definitions:
       - Agent
     title: TranscriptionConfig
   NotificationConfig:
-    type: object
-    title: NotificationConfig
     required:
     - url
+    type: object
     properties:
       url:
         type: string
@@ -1276,9 +1022,6 @@ definitions:
           - transcript.json-v2
           - transcript.txt
           - transcript.srt
-          - alignment
-          - alignment.word_start_and_end
-          - alignment.one_per_line
           - data
           - text
         description: Specifies a list of items to be attached to the notification
@@ -1305,10 +1048,12 @@ definitions:
       - transcript:json-v2
       auth_headers:
       - 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NjYwYmQifQ.-xN_h82PHVTCMA9vdoHrcZxH-x5mb11y1537t3rGzcM'
+    title: NotificationConfig
   LanguagePackInfo:
     description: Properties of the language pack.
     required:
     - word_delimiter
+    type: object
     properties:
       language_description:
         type: string
@@ -1350,7 +1095,6 @@ definitions:
   JobType:
     type: string
     enum:
-    - alignment
     - transcription
     title: JobType
   JobConfig:
@@ -1383,6 +1127,7 @@ definitions:
       '
     required:
     - type
+    type: object
     properties:
       type:
         $ref: '#/definitions/JobType'
@@ -1390,8 +1135,6 @@ definitions:
         $ref: '#/definitions/DataFetchConfig'
       fetch_text:
         $ref: '#/definitions/DataFetchConfig'
-      alignment_config:
-        $ref: '#/definitions/AlignmentConfig'
       transcription_config:
         $ref: '#/definitions/TranscriptionConfig'
       notification_config:
@@ -1421,6 +1164,7 @@ definitions:
   TranslationConfig:
     required:
     - target_languages
+    type: object
     properties:
       target_languages:
         type: array
@@ -1429,6 +1173,7 @@ definitions:
           type: string
     title: TranslationConfig
   LanguageIdentificationConfig:
+    type: object
     properties:
       expected_languages:
         type: array
@@ -1456,7 +1201,6 @@ definitions:
         - auto
         - informative
         - conversational
-        default: auto
         description: 'Choose from three options:
 
           - `conversational` - Best suited for dialogues involving multiple participants,
@@ -1493,6 +1237,7 @@ definitions:
         - bullets
     title: SummarizationConfig
   TopicDetectionConfig:
+    type: object
     properties:
       topics:
         x-omitempty: true
@@ -1519,6 +1264,7 @@ definitions:
   CreateJobResponse:
     required:
     - id
+    type: object
     properties:
       id:
         type: string
@@ -1537,6 +1283,7 @@ definitions:
     - data_name
     - id
     - status
+    type: object
     properties:
       created_at:
         type: string
@@ -1587,6 +1334,7 @@ definitions:
   RetrieveJobsResponse:
     required:
     - jobs
+    type: object
     properties:
       jobs:
         type: array
@@ -1656,6 +1404,7 @@ definitions:
   RetrieveJobResponse:
     required: &id001
     - job
+    type: object
     properties: &id002
       job:
         $ref: '#/definitions/JobDetails'
@@ -1707,6 +1456,7 @@ definitions:
     title: RetrieveJobResponse
   DeleteJobResponse:
     required: *id001
+    type: object
     properties: *id002
     example:
       job:
@@ -1762,6 +1512,7 @@ definitions:
     - data_name
     - duration
     - id
+    type: object
     properties:
       created_at:
         type: string
@@ -1779,9 +1530,6 @@ definitions:
         type: string
         example: a1b2c3d4e5
         description: The unique id assigned to the job.
-      text_name:
-        type: string
-        description: Name of the text file submitted to be aligned to audio.
       tracking:
         $ref: '#/definitions/TrackingData'
     title: JobInfo
@@ -1791,6 +1539,7 @@ definitions:
     required:
     - created_at
     - type
+    type: object
     properties:
       created_at:
         type: string
@@ -1801,10 +1550,6 @@ definitions:
         $ref: '#/definitions/JobType'
       transcription_config:
         $ref: '#/definitions/TranscriptionConfig'
-      orchestrator_version:
-        type: string
-        example: 2025.11.07+cd4ff775c0+14.7.0
-        description: The engine version used to generate transcription output.
       translation_errors:
         x-omitempty: true
         type: array
@@ -1835,8 +1580,6 @@ definitions:
         items:
           $ref: '#/definitions/AutoChaptersResultError'
         description: List of errors that occurred in the auto chapters stage.
-      alignment_config:
-        $ref: '#/definitions/AlignmentConfig'
       output_config:
         $ref: '#/definitions/OutputConfig'
       language_pack_info:
@@ -1844,12 +1587,17 @@ definitions:
       language_identification:
         $ref: '#/definitions/LanguageIdentificationResult'
         description: Result of the language identification of the audio, configured
-          using `language_identification_config`,  or setting the transcription language
+          using `language_identification_config`, or setting the transcription language
           to `auto`.
+      orchestrator_version:
+        type: string
+        description: Orchestrator version in PEP 440 Format or set to 'version_not_found'
+          as default.
     title: RecognitionMetadata
   RecognitionDisplay:
     required:
     - direction
+    type: object
     properties:
       direction:
         type: string
@@ -1863,6 +1611,7 @@ definitions:
     - content
     - confidence
     - language
+    type: object
     properties:
       content:
         type: string
@@ -1883,7 +1632,6 @@ definitions:
           type: string
     title: RecognitionAlternative
   RecognitionResult:
-    title: RecognitionResult
     description: An ASR job output item. The primary item types are `word` and `punctuation`.
       Other item types may be present, for example to provide semantic information
       of different forms.
@@ -1891,6 +1639,7 @@ definitions:
     - start_time
     - end_time
     - type
+    type: object
     properties:
       channel:
         type: string
@@ -1957,10 +1706,11 @@ definitions:
         speaker: S1
         display:
           direction: ltr
+    title: RecognitionResult
   WrittenFormRecognitionResult:
     description: A WrittenFormRecognitionResult describes a simple object which consists
       solely of 'word' type entries with a start and end time. It can occur only inside
-      the written_form property of a full RecognitionResult"
+      the written_form property of a full RecognitionResult'
     properties:
       alternatives:
         items:
@@ -1988,7 +1738,7 @@ definitions:
   SpokenFormRecognitionResult:
     description: A SpokenFormRecognitionResult describes a simple object which consists
       solely of 'word' or 'punctuation' type entries with a start and end time. It
-      can occur only inside the spoken_form property of a full "RecognitionResult"
+      can occur only inside the spoken_form property of a full 'RecognitionResult'
     properties:
       alternatives:
         items:
@@ -2015,7 +1765,6 @@ definitions:
     type: object
     title: SpokenFormRecognitionResult
   RetrieveTranscriptResponse:
-    title: RetrieveTranscriptResponse
     type: object
     required:
     - format
@@ -2091,6 +1840,7 @@ definitions:
             additionalProperties:
               type: object
               $ref: '#/definitions/AudioEventSummary'
+    title: RetrieveTranscriptResponse
   SummarizationResult:
     description: Summary of the transcript, configured using `summarization_config`.
     type: object
@@ -2181,10 +1931,13 @@ definitions:
         description: The channel label for the segment, if channel diarization is
           enabled
       confidence:
-        type: number
-        format: float
-        description: A confidence score in the range of 0-1
-        indicating the model's certainty in the predicted sentiment: null
+        type: number,
+        format: float,
+        description: 'A confidence score in the range of 0-1,
+
+          indicating the model''s certainty in the predicted sentiment,
+
+          '
     title: SentimentSegment
   SentimentSummary:
     type: object
@@ -2192,7 +1945,7 @@ definitions:
       and per-channel sentiment data.
     properties:
       overall:
-        description: Summary for all segments in the file
+        description: Summary of overall sentiment data.
         $ref: '#/definitions/SentimentSummaryDetail'
       speakers:
         type: array
@@ -2345,7 +2098,6 @@ definitions:
         description: The start time of the chapter in the audio file
       end_time:
         type: number
-        description: The end time of the chapter in the audio file
     title: Chapter
   AudioEventItem:
     type: object
@@ -2476,6 +2228,14 @@ definitions:
     - standard
     - enhanced
     title: OperatingPoint
+  Model:
+    type: string
+    description: Specific model to use in transcription (previously called operating
+      point).
+    enum:
+    - standard
+    - enhanced
+    title: Model
   JobMode:
     type: string
     enum:
@@ -2531,16 +2291,6 @@ definitions:
         format: float
         description: Total duration of billable jobs (in hours) this cycle
     title: UsageDetails
-  RetrieveObjectUrlsResponse:
-    type: object
-    properties:
-      data:
-        type: string
-      audio_mp3:
-        type: string
-      transcript:
-        type: string
-    title: RetrieveObjectUrlsResponse
   SpeakersInputItem:
     type: object
     properties:
@@ -2581,11 +2331,3 @@ definitions:
     - speaker_identifiers
     title: SpeakersResultItem
 host: asr.api.speechmatics.com
-securityDefinitions:
-  BearerAuth:
-    type: apiKey
-    in: header
-    name: Authorization
-    description: Bearer token authentication
-security:
-- BearerAuth: []

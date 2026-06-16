@@ -22,8 +22,7 @@ namespace Speechmatics
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.JobTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Speechmatics.JobType Type { get; set; }
+        public global::Speechmatics.JobType Type { get; set; }
 
         /// <summary>
         /// Example: {"language":"en","output_locale":"en-GB","additional_vocab":[{"content":"Speechmatics","sounds_like":["speechmatics"]},{"content":"gnocchi","sounds_like":["nyohki","nokey","nochi"]},{"content":"CEO","sounds_like":["C.E.O."]},{"content":"financial crisis"}],"diarization":"channel","channel_diarization_labels":["Caller","Agent"]}
@@ -31,14 +30,6 @@ namespace Speechmatics
         /// <example>{"language":"en","output_locale":"en-GB","additional_vocab":[{"content":"Speechmatics","sounds_like":["speechmatics"]},{"content":"gnocchi","sounds_like":["nyohki","nokey","nochi"]},{"content":"CEO","sounds_like":["C.E.O."]},{"content":"financial crisis"}],"diarization":"channel","channel_diarization_labels":["Caller","Agent"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcription_config")]
         public global::Speechmatics.TranscriptionConfig? TranscriptionConfig { get; set; }
-
-        /// <summary>
-        /// The engine version used to generate transcription output.<br/>
-        /// Example: 2025.11.07+cd4ff775c0+14.7.0
-        /// </summary>
-        /// <example>2025.11.07+cd4ff775c0+14.7.0</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("orchestrator_version")]
-        public string? OrchestratorVersion { get; set; }
 
         /// <summary>
         /// List of errors that occurred in the translation stage.
@@ -71,13 +62,6 @@ namespace Speechmatics
         public global::System.Collections.Generic.IList<global::Speechmatics.AutoChaptersResultError>? AutoChaptersErrors { get; set; }
 
         /// <summary>
-        /// Example: {"language":"en"}
-        /// </summary>
-        /// <example>{"language":"en"}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("alignment_config")]
-        public global::Speechmatics.AlignmentConfig? AlignmentConfig { get; set; }
-
-        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_config")]
@@ -97,6 +81,12 @@ namespace Speechmatics
         public global::Speechmatics.LanguageIdentificationResult? LanguageIdentification { get; set; }
 
         /// <summary>
+        /// Orchestrator version in PEP 440 Format or set to 'version_not_found' as default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("orchestrator_version")]
+        public string? OrchestratorVersion { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -113,10 +103,6 @@ namespace Speechmatics
         /// <param name="transcriptionConfig">
         /// Example: {"language":"en","output_locale":"en-GB","additional_vocab":[{"content":"Speechmatics","sounds_like":["speechmatics"]},{"content":"gnocchi","sounds_like":["nyohki","nokey","nochi"]},{"content":"CEO","sounds_like":["C.E.O."]},{"content":"financial crisis"}],"diarization":"channel","channel_diarization_labels":["Caller","Agent"]}
         /// </param>
-        /// <param name="orchestratorVersion">
-        /// The engine version used to generate transcription output.<br/>
-        /// Example: 2025.11.07+cd4ff775c0+14.7.0
-        /// </param>
         /// <param name="translationErrors">
         /// List of errors that occurred in the translation stage.
         /// </param>
@@ -132,15 +118,15 @@ namespace Speechmatics
         /// <param name="autoChaptersErrors">
         /// List of errors that occurred in the auto chapters stage.
         /// </param>
-        /// <param name="alignmentConfig">
-        /// Example: {"language":"en"}
-        /// </param>
         /// <param name="outputConfig"></param>
         /// <param name="languagePackInfo">
         /// Properties of the language pack.
         /// </param>
         /// <param name="languageIdentification">
         /// Example: {"results":[{"alternatives":[{"language":"en","confidence":0.98},{"language":"fr","confidence":0.02}],"start_time":0,"end_time":5.5},{"alternatives":[{"language":"en","confidence":0.95},{"language":"fr","confidence":0.05}],"start_time":5.6,"end_time":10}]}
+        /// </param>
+        /// <param name="orchestratorVersion">
+        /// Orchestrator version in PEP 440 Format or set to 'version_not_found' as default.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -149,30 +135,28 @@ namespace Speechmatics
             global::System.DateTime createdAt,
             global::Speechmatics.JobType type,
             global::Speechmatics.TranscriptionConfig? transcriptionConfig,
-            string? orchestratorVersion,
             global::System.Collections.Generic.IList<global::Speechmatics.TranslationError>? translationErrors,
             global::System.Collections.Generic.IList<global::Speechmatics.SummarizationError>? summarizationErrors,
             global::System.Collections.Generic.IList<global::Speechmatics.SentimentAnalysisError>? sentimentAnalysisErrors,
             global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionError>? topicDetectionErrors,
             global::System.Collections.Generic.IList<global::Speechmatics.AutoChaptersResultError>? autoChaptersErrors,
-            global::Speechmatics.AlignmentConfig? alignmentConfig,
             global::Speechmatics.OutputConfig? outputConfig,
             global::Speechmatics.LanguagePackInfo? languagePackInfo,
-            global::Speechmatics.LanguageIdentificationResult? languageIdentification)
+            global::Speechmatics.LanguageIdentificationResult? languageIdentification,
+            string? orchestratorVersion)
         {
             this.CreatedAt = createdAt;
             this.Type = type;
             this.TranscriptionConfig = transcriptionConfig;
-            this.OrchestratorVersion = orchestratorVersion;
             this.TranslationErrors = translationErrors;
             this.SummarizationErrors = summarizationErrors;
             this.SentimentAnalysisErrors = sentimentAnalysisErrors;
             this.TopicDetectionErrors = topicDetectionErrors;
             this.AutoChaptersErrors = autoChaptersErrors;
-            this.AlignmentConfig = alignmentConfig;
             this.OutputConfig = outputConfig;
             this.LanguagePackInfo = languagePackInfo;
             this.LanguageIdentification = languageIdentification;
+            this.OrchestratorVersion = orchestratorVersion;
         }
 
         /// <summary>

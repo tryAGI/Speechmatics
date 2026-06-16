@@ -24,8 +24,7 @@ namespace Speechmatics
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.JobTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Speechmatics.JobType Type { get; set; }
+        public global::Speechmatics.JobType Type { get; set; }
 
         /// <summary>
         /// 
@@ -38,13 +37,6 @@ namespace Speechmatics
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fetch_text")]
         public global::Speechmatics.DataFetchConfig? FetchText { get; set; }
-
-        /// <summary>
-        /// Example: {"language":"en"}
-        /// </summary>
-        /// <example>{"language":"en"}</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("alignment_config")]
-        public global::Speechmatics.AlignmentConfig? AlignmentConfig { get; set; }
 
         /// <summary>
         /// Example: {"language":"en","output_locale":"en-GB","additional_vocab":[{"content":"Speechmatics","sounds_like":["speechmatics"]},{"content":"gnocchi","sounds_like":["nyohki","nokey","nochi"]},{"content":"CEO","sounds_like":["C.E.O."]},{"content":"financial crisis"}],"diarization":"channel","channel_diarization_labels":["Caller","Agent"]}
@@ -126,9 +118,6 @@ namespace Speechmatics
         /// <param name="type"></param>
         /// <param name="fetchData"></param>
         /// <param name="fetchText"></param>
-        /// <param name="alignmentConfig">
-        /// Example: {"language":"en"}
-        /// </param>
         /// <param name="transcriptionConfig">
         /// Example: {"language":"en","output_locale":"en-GB","additional_vocab":[{"content":"Speechmatics","sounds_like":["speechmatics"]},{"content":"gnocchi","sounds_like":["nyohki","nokey","nochi"]},{"content":"CEO","sounds_like":["C.E.O."]},{"content":"financial crisis"}],"diarization":"channel","channel_diarization_labels":["Caller","Agent"]}
         /// </param>
@@ -153,7 +142,6 @@ namespace Speechmatics
             global::Speechmatics.JobType type,
             global::Speechmatics.DataFetchConfig? fetchData,
             global::Speechmatics.DataFetchConfig? fetchText,
-            global::Speechmatics.AlignmentConfig? alignmentConfig,
             global::Speechmatics.TranscriptionConfig? transcriptionConfig,
             global::System.Collections.Generic.IList<global::Speechmatics.NotificationConfig>? notificationConfig,
             global::Speechmatics.TrackingData? tracking,
@@ -169,7 +157,6 @@ namespace Speechmatics
             this.Type = type;
             this.FetchData = fetchData;
             this.FetchText = fetchText;
-            this.AlignmentConfig = alignmentConfig;
             this.TranscriptionConfig = transcriptionConfig;
             this.NotificationConfig = notificationConfig;
             this.Tracking = tracking;

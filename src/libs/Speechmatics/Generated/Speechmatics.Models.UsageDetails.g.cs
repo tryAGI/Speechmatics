@@ -20,8 +20,7 @@ namespace Speechmatics
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.JobTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Speechmatics.JobType Type { get; set; }
+        public global::Speechmatics.JobType Type { get; set; }
 
         /// <summary>
         /// Example: en
@@ -60,7 +59,6 @@ namespace Speechmatics
         /// <summary>
         /// Initializes a new instance of the <see cref="UsageDetails" /> class.
         /// </summary>
-        /// <param name="type"></param>
         /// <param name="count">
         /// Total number of billable jobs in this cycle
         /// </param>
@@ -68,6 +66,7 @@ namespace Speechmatics
         /// Total duration of billable jobs (in hours) this cycle
         /// </param>
         /// <param name="mode"></param>
+        /// <param name="type"></param>
         /// <param name="language">
         /// Example: en
         /// </param>
@@ -76,10 +75,10 @@ namespace Speechmatics
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public UsageDetails(
-            global::Speechmatics.JobType type,
             int count,
             float durationHrs,
             global::Speechmatics.JobMode mode,
+            global::Speechmatics.JobType type,
             string? language,
             global::Speechmatics.OperatingPoint? operatingPoint)
         {

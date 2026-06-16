@@ -11,10 +11,6 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        Alignment,
-        /// <summary>
-        /// 
-        /// </summary>
         Transcription,
     }
 
@@ -30,7 +26,6 @@ namespace Speechmatics
         {
             return value switch
             {
-                JobType.Alignment => "alignment",
                 JobType.Transcription => "transcription",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -42,7 +37,6 @@ namespace Speechmatics
         {
             return value switch
             {
-                "alignment" => JobType.Alignment,
                 "transcription" => JobType.Transcription,
                 _ => null,
             };

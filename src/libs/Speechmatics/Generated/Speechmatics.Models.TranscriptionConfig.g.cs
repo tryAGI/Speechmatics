@@ -16,7 +16,7 @@ namespace Speechmatics
         public required string Language { get; set; }
 
         /// <summary>
-        /// Request a specialized model based on 'language' but optimized for a particular field, e.g. "finance" or "medical".
+        /// Request a specialized model based on 'language' but optimized for a particular field, e.g. 'finance' or 'medical'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("domain")]
         public string? Domain { get; set; }
@@ -26,6 +26,13 @@ namespace Speechmatics
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_locale")]
         public string? OutputLocale { get; set; }
+
+        /// <summary>
+        /// Specific model to use in transcription (previously called operating point).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.ModelJsonConverter))]
+        public global::Speechmatics.Model? Model { get; set; }
 
         /// <summary>
         /// 
@@ -85,7 +92,7 @@ namespace Speechmatics
         public global::Speechmatics.TranscriptionConfigAudioFilteringConfig? AudioFilteringConfig { get; set; }
 
         /// <summary>
-        /// Configuration for applying filtering to the transcription.
+        /// Configuration for applying filtering to the transcription
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("transcript_filtering_config")]
         public global::Speechmatics.TranscriptionConfigTranscriptFilteringConfig? TranscriptFilteringConfig { get; set; }
@@ -109,10 +116,13 @@ namespace Speechmatics
         /// Language model to process the audio input, normally specified as an ISO language code
         /// </param>
         /// <param name="domain">
-        /// Request a specialized model based on 'language' but optimized for a particular field, e.g. "finance" or "medical".
+        /// Request a specialized model based on 'language' but optimized for a particular field, e.g. 'finance' or 'medical'.
         /// </param>
         /// <param name="outputLocale">
         /// Language locale to be used when generating the transcription output, normally specified as an ISO language code
+        /// </param>
+        /// <param name="model">
+        /// Specific model to use in transcription (previously called operating point).
         /// </param>
         /// <param name="operatingPoint"></param>
         /// <param name="additionalVocab">
@@ -143,7 +153,7 @@ namespace Speechmatics
         /// Configuration for limiting the transcription of quiet audio.
         /// </param>
         /// <param name="transcriptFilteringConfig">
-        /// Configuration for applying filtering to the transcription.
+        /// Configuration for applying filtering to the transcription
         /// </param>
         /// <param name="speakerDiarizationConfig">
         /// Configuration for speaker diarization
@@ -155,6 +165,7 @@ namespace Speechmatics
             string language,
             string? domain,
             string? outputLocale,
+            global::Speechmatics.Model? model,
             global::Speechmatics.OperatingPoint? operatingPoint,
             global::System.Collections.Generic.IList<global::Speechmatics.TranscriptionConfigAdditionalVocabItem>? additionalVocab,
             global::Speechmatics.TranscriptionConfigPunctuationOverrides? punctuationOverrides,
@@ -169,6 +180,7 @@ namespace Speechmatics
             this.Language = language ?? throw new global::System.ArgumentNullException(nameof(language));
             this.Domain = domain;
             this.OutputLocale = outputLocale;
+            this.Model = model;
             this.OperatingPoint = operatingPoint;
             this.AdditionalVocab = additionalVocab;
             this.PunctuationOverrides = punctuationOverrides;
