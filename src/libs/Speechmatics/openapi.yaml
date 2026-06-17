@@ -2227,6 +2227,7 @@ definitions:
     enum:
     - standard
     - enhanced
+    - melia-1
     title: OperatingPoint
   Model:
     type: string
@@ -2235,6 +2236,7 @@ definitions:
     enum:
     - standard
     - enhanced
+    - melia-1
     title: Model
   JobMode:
     type: string
