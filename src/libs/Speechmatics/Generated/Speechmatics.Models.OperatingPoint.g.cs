@@ -15,6 +15,10 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
+        Melia1,
+        /// <summary>
+        /// 
+        /// </summary>
         Standard,
     }
 
@@ -31,6 +35,7 @@ namespace Speechmatics
             return value switch
             {
                 OperatingPoint.Enhanced => "enhanced",
+                OperatingPoint.Melia1 => "melia-1",
                 OperatingPoint.Standard => "standard",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace Speechmatics
             return value switch
             {
                 "enhanced" => OperatingPoint.Enhanced,
+                "melia-1" => OperatingPoint.Melia1,
                 "standard" => OperatingPoint.Standard,
                 _ => null,
             };

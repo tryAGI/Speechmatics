@@ -15,6 +15,10 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
+        Melia1,
+        /// <summary>
+        /// 
+        /// </summary>
         Standard,
     }
 
@@ -31,6 +35,7 @@ namespace Speechmatics
             return value switch
             {
                 Model.Enhanced => "enhanced",
+                Model.Melia1 => "melia-1",
                 Model.Standard => "standard",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -43,6 +48,7 @@ namespace Speechmatics
             return value switch
             {
                 "enhanced" => Model.Enhanced,
+                "melia-1" => Model.Melia1,
                 "standard" => Model.Standard,
                 _ => null,
             };
