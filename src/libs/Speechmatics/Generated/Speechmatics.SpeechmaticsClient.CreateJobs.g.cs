@@ -28,11 +28,15 @@ namespace Speechmatics
         partial void PrepareCreateJobsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? xSmProcessingData,
+            ref int? wait,
+            ref global::Speechmatics.CreateJobsFormat? format,
             global::Speechmatics.CreateJobsRequest request);
         partial void PrepareCreateJobsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? xSmProcessingData,
+            int? wait,
+            global::Speechmatics.CreateJobsFormat? format,
             global::Speechmatics.CreateJobsRequest request);
         partial void ProcessCreateJobsResponse(
             global::System.Net.Http.HttpClient httpClient,
@@ -47,6 +51,8 @@ namespace Speechmatics
         /// Create a new job
         /// </summary>
         /// <param name="xSmProcessingData"></param>
+        /// <param name="wait"></param>
+        /// <param name="format"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -75,6 +81,8 @@ namespace Speechmatics
 
             global::Speechmatics.CreateJobsRequest request,
             string? xSmProcessingData = default,
+            int? wait = default,
+            global::Speechmatics.CreateJobsFormat? format = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -82,6 +90,8 @@ namespace Speechmatics
 
                 request: request,
                 xSmProcessingData: xSmProcessingData,
+                wait: wait,
+                format: format,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -92,6 +102,8 @@ namespace Speechmatics
         /// Create a new job
         /// </summary>
         /// <param name="xSmProcessingData"></param>
+        /// <param name="wait"></param>
+        /// <param name="format"></param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -120,6 +132,8 @@ namespace Speechmatics
 
             global::Speechmatics.CreateJobsRequest request,
             string? xSmProcessingData = default,
+            int? wait = default,
+            global::Speechmatics.CreateJobsFormat? format = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -130,6 +144,8 @@ namespace Speechmatics
             PrepareCreateJobsArguments(
                 httpClient: HttpClient,
                 xSmProcessingData: ref xSmProcessingData,
+                wait: ref wait,
+                format: ref format,
                 request: request);
 
 
@@ -158,6 +174,10 @@ namespace Speechmatics
                             var __pathBuilder = new global::Speechmatics.PathBuilder(
                                 path: "/jobs",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("wait", wait?.ToString())
+                                .AddOptionalParameter("format", format?.ToValueString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Speechmatics.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -201,6 +221,22 @@ namespace Speechmatics
                                 __httpRequestContent.Add(
                                     content: new global::System.Net.Http.StringContent(xSmProcessingData ?? string.Empty),
                                     name: "\"X-SM-Processing-Data\"");
+
+                            }
+                            if (wait != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(wait, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
+                                    name: "\"wait\"");
+
+                            }
+                            if (format != default)
+                            {
+
+                                __httpRequestContent.Add(
+                                    content: new global::System.Net.Http.StringContent((format).HasValue ? (format).GetValueOrDefault().ToValueString() : string.Empty),
+                                    name: "\"format\"");
 
                             }
                             __httpRequestContent.Add(
@@ -264,6 +300,8 @@ namespace Speechmatics
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     xSmProcessingData: xSmProcessingData,
+                    wait: wait,
+                    format: format,
                     request: request);
 
                 return __httpRequest;
@@ -728,6 +766,8 @@ namespace Speechmatics
         /// Create a new job
         /// </summary>
         /// <param name="xSmProcessingData"></param>
+        /// <param name="wait"></param>
+        /// <param name="format"></param>
         /// <param name="config">
         /// JSON containing a `JobConfig` model indicating the type and parameters for the recognition job.
         /// </param>
@@ -743,6 +783,8 @@ namespace Speechmatics
         public async global::System.Threading.Tasks.Task<global::Speechmatics.CreateJobResponse> CreateJobsAsync(
             string config,
             string? xSmProcessingData = default,
+            int? wait = default,
+            global::Speechmatics.CreateJobsFormat? format = default,
             byte[]? dataFile = default,
             string? dataFilename = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
@@ -757,6 +799,8 @@ namespace Speechmatics
 
             return await CreateJobsAsync(
                 xSmProcessingData: xSmProcessingData,
+                wait: wait,
+                format: format,
                 request: __request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken).ConfigureAwait(false);

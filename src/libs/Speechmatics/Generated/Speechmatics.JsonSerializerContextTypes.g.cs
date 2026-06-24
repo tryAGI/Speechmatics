@@ -260,307 +260,315 @@ namespace Speechmatics
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.JobDetails? Type58 { get; set; }
+        public global::Speechmatics.CreateJobResponseStatus? Type58 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.DateTime? Type59 { get; set; }
+        public global::Speechmatics.RetrieveTranscriptResponse? Type59 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.JobDetailsStatus? Type60 { get; set; }
+        public global::Speechmatics.JobDetails? Type60 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.JobDetailError>? Type61 { get; set; }
+        public global::System.DateTime? Type61 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.JobDetailError? Type62 { get; set; }
+        public global::Speechmatics.JobDetailsStatus? Type62 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RetrieveJobsResponse? Type63 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.JobDetailError>? Type63 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.JobDetails>? Type64 { get; set; }
+        public global::Speechmatics.JobDetailError? Type64 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RetrieveJobResponse? Type65 { get; set; }
+        public global::Speechmatics.RetrieveJobsResponse? Type65 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.DeleteJobResponse? Type66 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.JobDetails>? Type66 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.JobInfo? Type67 { get; set; }
+        public global::Speechmatics.RetrieveJobResponse? Type67 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionMetadata? Type68 { get; set; }
+        public global::Speechmatics.DeleteJobResponse? Type68 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.TranslationError>? Type69 { get; set; }
+        public global::Speechmatics.JobInfo? Type69 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SummarizationError>? Type70 { get; set; }
+        public global::Speechmatics.RecognitionMetadata? Type70 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentAnalysisError>? Type71 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.TranslationError>? Type71 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionError>? Type72 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SummarizationError>? Type72 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.AutoChaptersResultError>? Type73 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentAnalysisError>? Type73 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.LanguageIdentificationResult? Type74 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionError>? Type74 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionDisplay? Type75 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.AutoChaptersResultError>? Type75 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionDisplayDirection? Type76 { get; set; }
+        public global::Speechmatics.LanguageIdentificationResult? Type76 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionAlternative? Type77 { get; set; }
+        public global::Speechmatics.RecognitionDisplay? Type77 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionResult? Type78 { get; set; }
+        public global::Speechmatics.RecognitionDisplayDirection? Type78 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionResultType? Type79 { get; set; }
+        public global::Speechmatics.RecognitionAlternative? Type79 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.WrittenFormRecognitionResult>? Type80 { get; set; }
+        public global::Speechmatics.RecognitionResult? Type80 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.WrittenFormRecognitionResult? Type81 { get; set; }
+        public global::Speechmatics.RecognitionResultType? Type81 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? Type82 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.WrittenFormRecognitionResult>? Type82 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SpokenFormRecognitionResult? Type83 { get; set; }
+        public global::Speechmatics.WrittenFormRecognitionResult? Type83 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.RecognitionAlternative>? Type84 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? Type84 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RecognitionResultAttachesTo? Type85 { get; set; }
+        public global::Speechmatics.SpokenFormRecognitionResult? Type85 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.WrittenFormRecognitionResultType? Type86 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.RecognitionAlternative>? Type86 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SpokenFormRecognitionResultType? Type87 { get; set; }
+        public global::Speechmatics.RecognitionResultAttachesTo? Type87 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RetrieveTranscriptResponse? Type88 { get; set; }
+        public global::Speechmatics.WrittenFormRecognitionResultType? Type88 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.RecognitionResult>? Type89 { get; set; }
+        public global::Speechmatics.SpokenFormRecognitionResultType? Type89 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SpeakersResultItem>? Type90 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.RecognitionResult>? Type90 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SpeakersResultItem? Type91 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SpeakersResultItem>? Type91 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::Speechmatics.TranslationSentence>>? Type92 { get; set; }
+        public global::Speechmatics.SpeakersResultItem? Type92 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.TranslationSentence>? Type93 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::Speechmatics.TranslationSentence>>? Type93 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TranslationSentence? Type94 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.TranslationSentence>? Type94 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SummarizationResult? Type95 { get; set; }
+        public global::Speechmatics.TranslationSentence? Type95 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentAnalysisResult? Type96 { get; set; }
+        public global::Speechmatics.SummarizationResult? Type96 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionResult? Type97 { get; set; }
+        public global::Speechmatics.SentimentAnalysisResult? Type97 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.Chapter>? Type98 { get; set; }
+        public global::Speechmatics.TopicDetectionResult? Type98 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.AudioEventItem>? Type99 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.Chapter>? Type99 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.AudioEventItem? Type100 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.AudioEventItem>? Type100 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.RetrieveTranscriptResponseAudioEventSummary? Type101 { get; set; }
+        public global::Speechmatics.AudioEventItem? Type101 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::Speechmatics.AudioEventSummaryItem>? Type102 { get; set; }
+        public global::Speechmatics.RetrieveTranscriptResponseAudioEventSummary? Type102 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, global::Speechmatics.AudioEventSummaryItem>>? Type103 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::Speechmatics.AudioEventSummaryItem>? Type103 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentAnalysisResultSentimentAnalysis? Type104 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.Dictionary<string, global::Speechmatics.AudioEventSummaryItem>>? Type104 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentSegment>? Type105 { get; set; }
+        public global::Speechmatics.SentimentAnalysisResultSentimentAnalysis? Type105 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentSegment? Type106 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentSegment>? Type106 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentSummary? Type107 { get; set; }
+        public global::Speechmatics.SentimentSegment? Type107 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentSummaryDetail? Type108 { get; set; }
+        public global::Speechmatics.SentimentSummary? Type108 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentSpeakerSummary>? Type109 { get; set; }
+        public global::Speechmatics.SentimentSummaryDetail? Type109 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentSpeakerSummary? Type110 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentSpeakerSummary>? Type110 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentChannelSummary>? Type111 { get; set; }
+        public global::Speechmatics.SentimentSpeakerSummary? Type111 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.SentimentChannelSummary? Type112 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.SentimentChannelSummary>? Type112 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionSegment>? Type113 { get; set; }
+        public global::Speechmatics.SentimentChannelSummary? Type113 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionSegment? Type114 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionSegment>? Type114 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionSummary? Type115 { get; set; }
+        public global::Speechmatics.TopicDetectionSegment? Type115 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionSegmentTopic>? Type116 { get; set; }
+        public global::Speechmatics.TopicDetectionSummary? Type116 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.TopicDetectionSegmentTopic? Type117 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.TopicDetectionSegmentTopic>? Type117 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, int>? Type118 { get; set; }
+        public global::Speechmatics.TopicDetectionSegmentTopic? Type118 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.Chapter? Type119 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, int>? Type119 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public double? Type120 { get; set; }
+        public global::Speechmatics.Chapter? Type120 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.AudioEventSummaryItem? Type121 { get; set; }
+        public double? Type121 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultItem>? Type122 { get; set; }
+        public global::Speechmatics.AudioEventSummaryItem? Type122 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.LanguageIdentificationResultItem? Type123 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultItem>? Type123 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.LanguageIdentificationResultError? Type124 { get; set; }
+        public global::Speechmatics.LanguageIdentificationResultItem? Type124 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultAlternative>? Type125 { get; set; }
+        public global::Speechmatics.LanguageIdentificationResultError? Type125 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.LanguageIdentificationResultAlternative? Type126 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultAlternative>? Type126 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.JobMode? Type127 { get; set; }
+        public global::Speechmatics.LanguageIdentificationResultAlternative? Type127 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.UsageResponse? Type128 { get; set; }
+        public global::Speechmatics.JobMode? Type128 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Speechmatics.UsageDetails>? Type129 { get; set; }
+        public global::Speechmatics.UsageResponse? Type129 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.UsageDetails? Type130 { get; set; }
+        public global::System.Collections.Generic.IList<global::Speechmatics.UsageDetails>? Type130 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.CreateJobsRequest? Type131 { get; set; }
+        public global::Speechmatics.UsageDetails? Type131 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public byte[]? Type132 { get; set; }
+        public global::Speechmatics.CreateJobsRequest? Type132 { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public global::Speechmatics.GetJobsTranscriptFormat? Type133 { get; set; }
+        public byte[]? Type133 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Speechmatics.CreateJobsFormat? Type134 { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public global::Speechmatics.GetJobsTranscriptFormat? Type135 { get; set; }
 
         /// <summary>
         /// 

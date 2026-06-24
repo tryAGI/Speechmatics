@@ -27,11 +27,13 @@ namespace Speechmatics
             };
         partial void PrepareGetJobsByJobidArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string jobid);
+            ref string jobid,
+            ref int? wait);
         partial void PrepareGetJobsByJobidRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string jobid);
+            string jobid,
+            int? wait);
         partial void ProcessGetJobsByJobidResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -46,16 +48,19 @@ namespace Speechmatics
         /// Get job details, including progress and any error reports.
         /// </summary>
         /// <param name="jobid"></param>
+        /// <param name="wait"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveJobResponse> GetJobsByJobidAsync(
             string jobid,
+            int? wait = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetJobsByJobidAsResponseAsync(
                 jobid: jobid,
+                wait: wait,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,11 +72,13 @@ namespace Speechmatics
         /// Get job details, including progress and any error reports.
         /// </summary>
         /// <param name="jobid"></param>
+        /// <param name="wait"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveJobResponse>> GetJobsByJobidAsResponseAsync(
             string jobid,
+            int? wait = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,7 +86,8 @@ namespace Speechmatics
                 client: HttpClient);
             PrepareGetJobsByJobidArguments(
                 httpClient: HttpClient,
-                jobid: ref jobid);
+                jobid: ref jobid,
+                wait: ref wait);
 
 
             var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,6 +115,9 @@ namespace Speechmatics
                             var __pathBuilder = new global::Speechmatics.PathBuilder(
                                 path: $"/jobs/{jobid}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("wait", wait?.ToString())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Speechmatics.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -147,7 +158,8 @@ namespace Speechmatics
                 PrepareGetJobsByJobidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    jobid: jobid!);
+                    jobid: jobid!,
+                    wait: wait);
 
                 return __httpRequest;
             }

@@ -28,12 +28,14 @@ namespace Speechmatics
         partial void PrepareGetJobsByJobidTranscriptArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string jobid,
-            ref global::Speechmatics.GetJobsTranscriptFormat? format);
+            ref global::Speechmatics.GetJobsTranscriptFormat? format,
+            ref int? wait);
         partial void PrepareGetJobsByJobidTranscriptRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string jobid,
-            global::Speechmatics.GetJobsTranscriptFormat? format);
+            global::Speechmatics.GetJobsTranscriptFormat? format,
+            int? wait);
         partial void ProcessGetJobsByJobidTranscriptResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -48,18 +50,21 @@ namespace Speechmatics
         /// </summary>
         /// <param name="jobid"></param>
         /// <param name="format"></param>
+        /// <param name="wait"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveTranscriptResponse> GetJobsByJobidTranscriptAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,
+            int? wait = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetJobsByJobidTranscriptAsResponseAsync(
                 jobid: jobid,
                 format: format,
+                wait: wait,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -71,12 +76,14 @@ namespace Speechmatics
         /// </summary>
         /// <param name="jobid"></param>
         /// <param name="format"></param>
+        /// <param name="wait"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveTranscriptResponse>> GetJobsByJobidTranscriptAsResponseAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,
+            int? wait = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +92,8 @@ namespace Speechmatics
             PrepareGetJobsByJobidTranscriptArguments(
                 httpClient: HttpClient,
                 jobid: ref jobid,
-                format: ref format);
+                format: ref format,
+                wait: ref wait);
 
 
             var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
@@ -115,6 +123,7 @@ namespace Speechmatics
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("format", format?.ToValueString())
+                                .AddOptionalParameter("wait", wait?.ToString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Speechmatics.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -157,7 +166,8 @@ namespace Speechmatics
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     jobid: jobid!,
-                    format: format);
+                    format: format,
+                    wait: wait);
 
                 return __httpRequest;
             }
