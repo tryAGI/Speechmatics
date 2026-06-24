@@ -77,6 +77,10 @@ namespace Speechmatics
 
             typeof(global::Speechmatics.JsonConverters.SummarizationConfigSummaryTypeNullableJsonConverter),
 
+            typeof(global::Speechmatics.JsonConverters.CreateJobResponseStatusJsonConverter),
+
+            typeof(global::Speechmatics.JsonConverters.CreateJobResponseStatusNullableJsonConverter),
+
             typeof(global::Speechmatics.JsonConverters.JobDetailsStatusJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.JobDetailsStatusNullableJsonConverter),
@@ -116,6 +120,10 @@ namespace Speechmatics
             typeof(global::Speechmatics.JsonConverters.JobModeJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.JobModeNullableJsonConverter),
+
+            typeof(global::Speechmatics.JsonConverters.CreateJobsFormatJsonConverter),
+
+            typeof(global::Speechmatics.JsonConverters.CreateJobsFormatNullableJsonConverter),
 
             typeof(global::Speechmatics.JsonConverters.GetJobsTranscriptFormatJsonConverter),
 
@@ -182,6 +190,8 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.SummarizationConfigSummaryLength), TypeInfoPropertyName = "SummarizationConfigSummaryLength2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.SummarizationConfigSummaryType), TypeInfoPropertyName = "SummarizationConfigSummaryType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobResponseStatus), TypeInfoPropertyName = "CreateJobResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.RetrieveTranscriptResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.JobDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.JobDetailsStatus), TypeInfoPropertyName = "JobDetailsStatus2")]
@@ -212,7 +222,6 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.RecognitionResultAttachesTo), TypeInfoPropertyName = "RecognitionResultAttachesTo2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.WrittenFormRecognitionResultType), TypeInfoPropertyName = "WrittenFormRecognitionResultType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.SpokenFormRecognitionResultType), TypeInfoPropertyName = "SpokenFormRecognitionResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.RetrieveTranscriptResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.RecognitionResult>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Speechmatics.SpeakersResultItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.SpeakersResultItem))]
@@ -257,6 +266,7 @@ namespace Speechmatics
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.UsageDetails))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(byte[]))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.CreateJobsFormat), TypeInfoPropertyName = "CreateJobsFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Speechmatics.GetJobsTranscriptFormat), TypeInfoPropertyName = "GetJobsTranscriptFormat2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Speechmatics.TranscriptionConfigAdditionalVocabItem>))]
