@@ -7,7 +7,7 @@ namespace Speechmatics
     {
 
 
-        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetJobsByJobidTranscriptSecurityRequirement0 =
+        private static readonly global::Speechmatics.EndPointSecurityRequirement s_GetJobsByJobidTranscriptAsTextSecurityRequirement0 =
             new global::Speechmatics.EndPointSecurityRequirement
             {
                 Authorizations = new global::Speechmatics.EndPointAuthorizationRequirement[]
@@ -21,26 +21,26 @@ namespace Speechmatics
                     },
                 },
             };
-        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetJobsByJobidTranscriptSecurityRequirements =
+        private static readonly global::Speechmatics.EndPointSecurityRequirement[] s_GetJobsByJobidTranscriptAsTextSecurityRequirements =
             new global::Speechmatics.EndPointSecurityRequirement[]
-            {                s_GetJobsByJobidTranscriptSecurityRequirement0,
+            {                s_GetJobsByJobidTranscriptAsTextSecurityRequirement0,
             };
-        partial void PrepareGetJobsByJobidTranscriptArguments(
+        partial void PrepareGetJobsByJobidTranscriptAsTextArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string jobid,
             ref global::Speechmatics.GetJobsTranscriptFormat? format,
             ref int? wait);
-        partial void PrepareGetJobsByJobidTranscriptRequest(
+        partial void PrepareGetJobsByJobidTranscriptAsTextRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format,
             int? wait);
-        partial void ProcessGetJobsByJobidTranscriptResponse(
+        partial void ProcessGetJobsByJobidTranscriptAsTextResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetJobsByJobidTranscriptResponseContent(
+        partial void ProcessGetJobsByJobidTranscriptAsTextResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
@@ -54,14 +54,14 @@ namespace Speechmatics
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveTranscriptResponse> GetJobsByJobidTranscriptAsync(
+        public async global::System.Threading.Tasks.Task<string> GetJobsByJobidTranscriptAsTextAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,
             int? wait = default,
             global::Speechmatics.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetJobsByJobidTranscriptAsResponseAsync(
+            var __response = await GetJobsByJobidTranscriptAsTextAsResponseAsync(
                 jobid: jobid,
                 format: format,
                 wait: wait,
@@ -80,7 +80,7 @@ namespace Speechmatics
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveTranscriptResponse>> GetJobsByJobidTranscriptAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<string>> GetJobsByJobidTranscriptAsTextAsResponseAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,
             int? wait = default,
@@ -89,7 +89,7 @@ namespace Speechmatics
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetJobsByJobidTranscriptArguments(
+            PrepareGetJobsByJobidTranscriptAsTextArguments(
                 httpClient: HttpClient,
                 jobid: ref jobid,
                 format: ref format,
@@ -98,8 +98,8 @@ namespace Speechmatics
 
             var __authorizations = global::Speechmatics.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetJobsByJobidTranscriptSecurityRequirements,
-                operationName: "GetJobsByJobidTranscriptAsync");
+                securityRequirements: s_GetJobsByJobidTranscriptAsTextSecurityRequirements,
+                operationName: "GetJobsByJobidTranscriptAsTextAsync");
 
             using var __timeoutCancellationTokenSource = global::Speechmatics.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -140,7 +140,7 @@ namespace Speechmatics
 
                 __httpRequest.Headers.TryAddWithoutValidation(
                     "Accept",
-                    "application/vnd.speechmatics.v2+json");
+                    "text/plain");
 
             foreach (var __authorization in __authorizations)
             {
@@ -166,7 +166,7 @@ namespace Speechmatics
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetJobsByJobidTranscriptRequest(
+                PrepareGetJobsByJobidTranscriptAsTextRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     jobid: jobid!,
@@ -188,8 +188,8 @@ namespace Speechmatics
                     await global::Speechmatics.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getJobsByJobidTranscript",
-                                methodName: "GetJobsByJobidTranscriptAsync",
+                                operationId: "getJobsByJobidTranscriptAsText",
+                                methodName: "GetJobsByJobidTranscriptAsTextAsync",
                                 pathTemplate: "$\"/jobs/{jobid}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -222,8 +222,8 @@ namespace Speechmatics
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getJobsByJobidTranscript",
-                                methodName: "GetJobsByJobidTranscriptAsync",
+                                operationId: "getJobsByJobidTranscriptAsText",
+                                methodName: "GetJobsByJobidTranscriptAsTextAsync",
                                 pathTemplate: "$\"/jobs/{jobid}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -263,8 +263,8 @@ namespace Speechmatics
                         await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getJobsByJobidTranscript",
-                                methodName: "GetJobsByJobidTranscriptAsync",
+                                operationId: "getJobsByJobidTranscriptAsText",
+                                methodName: "GetJobsByJobidTranscriptAsTextAsync",
                                 pathTemplate: "$\"/jobs/{jobid}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -303,7 +303,7 @@ namespace Speechmatics
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetJobsByJobidTranscriptResponse(
+                ProcessGetJobsByJobidTranscriptAsTextResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -311,8 +311,8 @@ namespace Speechmatics
                     await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getJobsByJobidTranscript",
-                                methodName: "GetJobsByJobidTranscriptAsync",
+                                operationId: "getJobsByJobidTranscriptAsText",
+                                methodName: "GetJobsByJobidTranscriptAsTextAsync",
                                 pathTemplate: "$\"/jobs/{jobid}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -333,8 +333,8 @@ namespace Speechmatics
                     await global::Speechmatics.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Speechmatics.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "getJobsByJobidTranscript",
-                                methodName: "GetJobsByJobidTranscriptAsync",
+                                operationId: "getJobsByJobidTranscriptAsText",
+                                methodName: "GetJobsByJobidTranscriptAsTextAsync",
                                 pathTemplate: "$\"/jobs/{jobid}/transcript\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
@@ -355,19 +355,19 @@ namespace Speechmatics
                             {
                                 string? __content_401 = null;
                                 global::System.Exception? __exception_401 = null;
-                                global::Speechmatics.ErrorResponse? __value_401 = null;
+                                string? __value_401 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_401 = global::Speechmatics.ErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_401, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_401 = global::Speechmatics.ErrorResponse.FromJson(__content_401, JsonSerializerContext);
+                                        __value_401 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_401, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -376,7 +376,7 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
+                                throw global::Speechmatics.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_401 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_401,
@@ -392,19 +392,19 @@ namespace Speechmatics
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                global::Speechmatics.ErrorResponse? __value_404 = null;
+                                string? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::Speechmatics.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_404 = global::Speechmatics.ErrorResponse.FromJson(__content_404, JsonSerializerContext);
+                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -413,7 +413,7 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
+                                throw global::Speechmatics.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
@@ -429,19 +429,19 @@ namespace Speechmatics
                             {
                                 string? __content_410 = null;
                                 global::System.Exception? __exception_410 = null;
-                                global::Speechmatics.ErrorResponse? __value_410 = null;
+                                string? __value_410 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_410 = global::Speechmatics.ErrorResponse.FromJson(__content_410, JsonSerializerContext);
+                                        __value_410 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_410, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_410 = global::Speechmatics.ErrorResponse.FromJson(__content_410, JsonSerializerContext);
+                                        __value_410 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_410, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -450,7 +450,7 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
+                                throw global::Speechmatics.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_410 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_410,
@@ -466,15 +466,19 @@ namespace Speechmatics
                             {
                                 string? __content_429 = null;
                                 global::System.Exception? __exception_429 = null;
+                                string? __value_429 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_429 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_429 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_429, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -483,11 +487,12 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException.Create(
+                                throw global::Speechmatics.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_429 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_429,
                                     responseBody: __content_429,
+                                    responseObject: __value_429,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,
@@ -498,19 +503,19 @@ namespace Speechmatics
                             {
                                 string? __content_500 = null;
                                 global::System.Exception? __exception_500 = null;
-                                global::Speechmatics.ErrorResponse? __value_500 = null;
+                                string? __value_500 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_500 = global::Speechmatics.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_500 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_500 = global::Speechmatics.ErrorResponse.FromJson(__content_500, JsonSerializerContext);
+                                        __value_500 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_500, typeof(string), JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -519,7 +524,7 @@ namespace Speechmatics
                                 }
 
 
-                                throw global::Speechmatics.ApiException<global::Speechmatics.ErrorResponse>.Create(
+                                throw global::Speechmatics.ApiException<string>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_500 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_500,
@@ -543,7 +548,7 @@ namespace Speechmatics
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetJobsByJobidTranscriptResponseContent(
+                                ProcessGetJobsByJobidTranscriptAsTextResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -552,13 +557,11 @@ namespace Speechmatics
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Speechmatics.RetrieveTranscriptResponse.FromJson(__content, JsonSerializerContext) ??
-                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveTranscriptResponse>(
+                                    return new global::Speechmatics.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Speechmatics.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -578,19 +581,17 @@ namespace Speechmatics
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    using var __content = await __response.Content.ReadAsStreamAsync(
+                                    var __content = await __response.Content.ReadAsStringAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Speechmatics.RetrieveTranscriptResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
-                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveTranscriptResponse>(
+                                    return new global::Speechmatics.AutoSDKHttpResponse<string>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Speechmatics.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __value);
+                                        body: __content);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

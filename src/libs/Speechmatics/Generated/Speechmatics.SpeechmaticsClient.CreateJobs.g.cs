@@ -215,30 +215,6 @@ namespace Speechmatics
 
 
                             var __httpRequestContent = new global::System.Net.Http.MultipartFormDataContent();
-                            if (xSmProcessingData != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(xSmProcessingData ?? string.Empty),
-                                    name: "\"X-SM-Processing-Data\"");
-
-                            }
-                            if (wait != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent(global::System.Convert.ToString(wait, global::System.Globalization.CultureInfo.InvariantCulture) ?? string.Empty),
-                                    name: "\"wait\"");
-
-                            }
-                            if (format != default)
-                            {
-
-                                __httpRequestContent.Add(
-                                    content: new global::System.Net.Http.StringContent((format).HasValue ? (format).GetValueOrDefault().ToValueString() : string.Empty),
-                                    name: "\"format\"");
-
-                            }
                             __httpRequestContent.Add(
                                 content: new global::System.Net.Http.StringContent(request.Config ?? string.Empty),
                                 name: "\"config\"");
