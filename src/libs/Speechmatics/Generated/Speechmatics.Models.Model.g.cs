@@ -9,15 +9,15 @@ namespace Speechmatics
     public enum Model
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enhanced,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Melia1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
     }

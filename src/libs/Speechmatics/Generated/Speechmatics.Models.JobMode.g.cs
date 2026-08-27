@@ -4,12 +4,12 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum JobMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Batch,
     }

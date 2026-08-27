@@ -4,20 +4,20 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum OperatingPoint
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enhanced,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Melia1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Standard,
     }

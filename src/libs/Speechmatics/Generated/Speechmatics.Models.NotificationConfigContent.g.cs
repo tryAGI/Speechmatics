@@ -4,36 +4,36 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum NotificationConfigContent
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Data,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Jobinfo,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Text,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Transcript,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptJsonV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptSrt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptTxt,
     }

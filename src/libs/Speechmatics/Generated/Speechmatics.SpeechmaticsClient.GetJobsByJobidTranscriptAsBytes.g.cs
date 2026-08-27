@@ -156,7 +156,7 @@ namespace Speechmatics
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Speechmatics.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
@@ -671,7 +671,7 @@ namespace Speechmatics
                          __authorization.Location == "Header")
                 {
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
-                } 
+                }
             }
                 global::Speechmatics.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,

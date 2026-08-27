@@ -12,11 +12,11 @@ namespace Speechmatics
     public enum SummarizationConfigSummaryLength
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Brief,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Detailed,
     }

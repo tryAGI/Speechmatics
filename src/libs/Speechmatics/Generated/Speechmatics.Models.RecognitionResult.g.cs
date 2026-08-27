@@ -10,20 +10,20 @@ namespace Speechmatics
     public sealed partial class RecognitionResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("channel")]
         public string? Channel { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required float StartTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -50,19 +50,19 @@ namespace Speechmatics
         public required global::Speechmatics.RecognitionResultType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("written_form")]
         public global::System.Collections.Generic.IList<global::Speechmatics.WrittenFormRecognitionResult>? WrittenForm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("spoken_form")]
         public global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? SpokenForm { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alternatives")]
         public global::System.Collections.Generic.IList<global::Speechmatics.RecognitionAlternative>? Alternatives { get; set; }

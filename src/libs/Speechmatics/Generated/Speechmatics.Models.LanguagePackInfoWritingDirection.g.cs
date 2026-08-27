@@ -9,11 +9,11 @@ namespace Speechmatics
     public enum LanguagePackInfoWritingDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LeftToRight,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RightToLeft,
     }

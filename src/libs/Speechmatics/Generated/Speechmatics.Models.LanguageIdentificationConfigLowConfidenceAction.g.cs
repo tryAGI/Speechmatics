@@ -9,15 +9,15 @@ namespace Speechmatics
     public enum LanguageIdentificationConfigLowConfidenceAction
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Allow,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Reject,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UseDefaultLanguage,
     }

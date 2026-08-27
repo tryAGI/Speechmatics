@@ -9,7 +9,7 @@ namespace Speechmatics
     public sealed partial class TopicDetectionSegmentTopic
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topic")]
         public string? Topic { get; set; }

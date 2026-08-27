@@ -4,12 +4,12 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LanguageIdentificationConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected_languages")]
         public global::System.Collections.Generic.IList<string>? ExpectedLanguages { get; set; }
@@ -22,7 +22,7 @@ namespace Speechmatics
         public global::Speechmatics.LanguageIdentificationConfigLowConfidenceAction? LowConfidenceAction { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("default_language")]
         public string? DefaultLanguage { get; set; }

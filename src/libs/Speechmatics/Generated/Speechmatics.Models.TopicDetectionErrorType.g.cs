@@ -4,20 +4,20 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TopicDetectionErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TopicDetectionFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedLanguage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedListOfTopics,
     }

@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum RecognitionDisplayDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Ltr,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Rtl,
     }

@@ -12,15 +12,15 @@ namespace Speechmatics
     public enum SummarizationConfigContentType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Conversational,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Informative,
     }

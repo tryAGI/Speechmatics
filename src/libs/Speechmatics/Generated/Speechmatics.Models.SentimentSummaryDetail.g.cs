@@ -9,19 +9,19 @@ namespace Speechmatics
     public sealed partial class SentimentSummaryDetail
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("positive_count")]
         public int? PositiveCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("negative_count")]
         public int? NegativeCount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("neutral_count")]
         public int? NeutralCount { get; set; }

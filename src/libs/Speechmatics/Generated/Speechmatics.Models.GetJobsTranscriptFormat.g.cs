@@ -4,20 +4,20 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetJobsTranscriptFormat
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JsonV2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Srt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Txt,
     }

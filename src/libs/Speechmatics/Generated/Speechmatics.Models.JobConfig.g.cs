@@ -20,20 +20,20 @@ namespace Speechmatics
     public sealed partial class JobConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.JobTypeJsonConverter))]
         public global::Speechmatics.JobType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fetch_data")]
         public global::Speechmatics.DataFetchConfig? FetchData { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fetch_text")]
         public global::Speechmatics.DataFetchConfig? FetchText { get; set; }
@@ -46,7 +46,7 @@ namespace Speechmatics
         public global::Speechmatics.TranscriptionConfig? TranscriptionConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("notification_config")]
         public global::System.Collections.Generic.IList<global::Speechmatics.NotificationConfig>? NotificationConfig { get; set; }
@@ -59,19 +59,19 @@ namespace Speechmatics
         public global::Speechmatics.TrackingData? Tracking { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_config")]
         public global::Speechmatics.OutputConfig? OutputConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("translation_config")]
         public global::Speechmatics.TranslationConfig? TranslationConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_identification_config")]
         public global::Speechmatics.LanguageIdentificationConfig? LanguageIdentificationConfig { get; set; }
@@ -83,25 +83,25 @@ namespace Speechmatics
         public global::Speechmatics.SummarizationConfig? SummarizationConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sentiment_analysis_config")]
         public global::Speechmatics.SentimentAnalysisConfig? SentimentAnalysisConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topic_detection_config")]
         public global::Speechmatics.TopicDetectionConfig? TopicDetectionConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auto_chapters_config")]
         public global::Speechmatics.AutoChaptersConfig? AutoChaptersConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("audio_events_config")]
         public global::Speechmatics.AudioEventsConfig? AudioEventsConfig { get; set; }

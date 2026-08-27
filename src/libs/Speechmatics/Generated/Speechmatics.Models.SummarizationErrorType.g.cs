@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SummarizationErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SummarizationFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedLanguage,
     }

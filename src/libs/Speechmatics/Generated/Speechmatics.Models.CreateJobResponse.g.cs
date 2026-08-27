@@ -23,7 +23,7 @@ namespace Speechmatics
         public global::Speechmatics.CreateJobResponseStatus? Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("json-v2")]
         public global::Speechmatics.RetrieveTranscriptResponse? JsonV2 { get; set; }

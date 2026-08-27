@@ -9,7 +9,7 @@ namespace Speechmatics
     public sealed partial class RetrieveJobsResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("jobs")]
         [global::System.Text.Json.Serialization.JsonRequired]

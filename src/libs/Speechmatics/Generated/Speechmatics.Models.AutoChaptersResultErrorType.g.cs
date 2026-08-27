@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum AutoChaptersResultErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AutoChaptersFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedLanguage,
     }

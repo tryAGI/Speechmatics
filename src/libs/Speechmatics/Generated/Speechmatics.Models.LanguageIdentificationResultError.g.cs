@@ -4,28 +4,28 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum LanguageIdentificationResultError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileUnreadable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LowConfidence,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoSpeech,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Other,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnexpectedLanguage,
     }

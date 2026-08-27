@@ -11,7 +11,7 @@ namespace Speechmatics
     public sealed partial class SpeechmaticsClient : global::Speechmatics.ISpeechmaticsClient, global::System.IDisposable
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public const string DefaultBaseUrl = "https://asr.api.speechmatics.com/v2";
 
@@ -38,7 +38,7 @@ namespace Speechmatics
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Speechmatics.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {

@@ -9,15 +9,15 @@ namespace Speechmatics
     public enum RecognitionResultType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Entity,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Punctuation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }
