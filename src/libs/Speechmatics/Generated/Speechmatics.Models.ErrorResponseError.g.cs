@@ -9,103 +9,103 @@ namespace Speechmatics
     public enum ErrorResponseError
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BadRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FileExpired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Forbidden,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FormatNotSupported,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         InternalServerError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobExpired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobInProgress,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobError,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobIsNotOfTypeTranscription,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobNotFound,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobRejected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobRejectedDueToInvalidAudio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         JobRejectedDueToInvalidText,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         LogFileNotAvailable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MalformedRequest,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MaxConcurrentRunningJobsExceeded,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MissingCallback,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         MissingDataFile,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoLanguageSelected,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NotImplemented,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         PermissionDenied,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         RequestedProductNotAvailable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ResourceLocked,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranscriptionNotReady,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnprocessableEntity,
     }

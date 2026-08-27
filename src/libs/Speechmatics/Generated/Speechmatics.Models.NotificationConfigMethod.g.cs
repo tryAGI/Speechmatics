@@ -9,11 +9,11 @@ namespace Speechmatics
     public enum NotificationConfigMethod
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Post,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Put,
     }

@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum TranslationErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         TranslationFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedTranslationPair,
     }

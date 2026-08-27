@@ -18,7 +18,7 @@ namespace Speechmatics
         public required global::System.DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.JobTypeJsonConverter))]
@@ -62,7 +62,7 @@ namespace Speechmatics
         public global::System.Collections.Generic.IList<global::Speechmatics.AutoChaptersResultError>? AutoChaptersErrors { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_config")]
         public global::Speechmatics.OutputConfig? OutputConfig { get; set; }

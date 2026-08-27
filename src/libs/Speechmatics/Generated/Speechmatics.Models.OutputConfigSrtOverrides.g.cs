@@ -9,13 +9,13 @@ namespace Speechmatics
     public sealed partial class OutputConfigSrtOverrides
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_line_length")]
         public int? MaxLineLength { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("max_lines")]
         public int? MaxLines { get; set; }

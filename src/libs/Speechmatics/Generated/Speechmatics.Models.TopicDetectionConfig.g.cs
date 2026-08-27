@@ -4,12 +4,12 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TopicDetectionConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("topics")]
         public global::System.Collections.Generic.IList<string>? Topics { get; set; }

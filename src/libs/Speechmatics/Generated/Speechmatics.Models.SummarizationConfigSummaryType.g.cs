@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SummarizationConfigSummaryType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Bullets,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Paragraphs,
     }

@@ -4,7 +4,7 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class SpeakersResultItem
     {
@@ -16,7 +16,7 @@ namespace Speechmatics
         public required string Label { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speaker_identifiers")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -10,7 +10,7 @@ namespace Speechmatics
     public sealed partial class SummarizationResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         public string? Content { get; set; }

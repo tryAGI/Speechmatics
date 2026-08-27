@@ -9,20 +9,20 @@ namespace Speechmatics
     public sealed partial class LanguageIdentificationResult
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultItem>? Results { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.LanguageIdentificationResultErrorJsonConverter))]
         public global::Speechmatics.LanguageIdentificationResultError? Error { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         public string? Message { get; set; }

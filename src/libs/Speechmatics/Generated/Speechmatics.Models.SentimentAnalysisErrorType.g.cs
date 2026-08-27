@@ -4,16 +4,16 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum SentimentAnalysisErrorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         SentimentAnalysisFailed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UnsupportedLanguage,
     }

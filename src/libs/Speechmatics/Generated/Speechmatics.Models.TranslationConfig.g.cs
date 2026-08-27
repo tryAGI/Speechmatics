@@ -4,12 +4,12 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TranslationConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("target_languages")]
         [global::System.Text.Json.Serialization.JsonRequired]

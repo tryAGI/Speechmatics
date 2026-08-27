@@ -4,7 +4,7 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class JobDetailError
     {

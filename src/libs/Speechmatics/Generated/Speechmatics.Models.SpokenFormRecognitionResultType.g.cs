@@ -9,11 +9,11 @@ namespace Speechmatics
     public enum SpokenFormRecognitionResultType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Punctuation,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

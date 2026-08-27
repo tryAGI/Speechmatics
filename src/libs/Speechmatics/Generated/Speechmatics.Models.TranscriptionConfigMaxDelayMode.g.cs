@@ -9,11 +9,11 @@ namespace Speechmatics
     public enum TranscriptionConfigMaxDelayMode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Fixed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Flexible,
     }

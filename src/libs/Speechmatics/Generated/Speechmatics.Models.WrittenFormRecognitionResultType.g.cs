@@ -9,7 +9,7 @@ namespace Speechmatics
     public enum WrittenFormRecognitionResultType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Word,
     }

@@ -35,7 +35,7 @@ namespace Speechmatics
         public global::Speechmatics.Model? Model { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("operating_point")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.OperatingPointJsonConverter))]

@@ -9,7 +9,7 @@ namespace Speechmatics
     public sealed partial class RetrieveTranscriptResponseAudioEventSummary
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("overall")]
         public global::System.Collections.Generic.Dictionary<string, global::Speechmatics.AudioEventSummaryItem>? Overall { get; set; }

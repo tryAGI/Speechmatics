@@ -4,7 +4,7 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class RetrieveTranscriptResponse
     {
@@ -32,7 +32,7 @@ namespace Speechmatics
         public required global::Speechmatics.RecognitionMetadata Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("results")]
         [global::System.Text.Json.Serialization.JsonRequired]

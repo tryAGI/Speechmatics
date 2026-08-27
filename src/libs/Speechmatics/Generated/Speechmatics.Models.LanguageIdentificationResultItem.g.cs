@@ -4,24 +4,24 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class LanguageIdentificationResultItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alternatives")]
         public global::System.Collections.Generic.IList<global::Speechmatics.LanguageIdentificationResultAlternative>? Alternatives { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("start_time")]
         public double? StartTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("end_time")]
         public double? EndTime { get; set; }

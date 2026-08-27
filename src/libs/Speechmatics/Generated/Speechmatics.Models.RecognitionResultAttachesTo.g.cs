@@ -9,19 +9,19 @@ namespace Speechmatics
     public enum RecognitionResultAttachesTo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Both,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Next,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         None,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Previous,
     }

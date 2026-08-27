@@ -20,7 +20,7 @@ namespace Speechmatics.JsonConverters
                     {
                         return global::Speechmatics.OperatingPointExtensions.ToEnum(stringValue) ?? default;
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

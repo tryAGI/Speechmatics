@@ -4,19 +4,19 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class TranscriptionConfigTranscriptFilteringConfigReplacement
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("from")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string From { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("to")]
         [global::System.Text.Json.Serialization.JsonRequired]

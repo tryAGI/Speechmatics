@@ -29,7 +29,7 @@ namespace Speechmatics
         public global::Speechmatics.SummarizationConfigSummaryLength? SummaryLength { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("summary_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.SummarizationConfigSummaryTypeJsonConverter))]
