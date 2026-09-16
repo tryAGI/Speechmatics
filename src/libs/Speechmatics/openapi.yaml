@@ -834,6 +834,7 @@ definitions:
           only for backward compatibility.'
       additional_vocab:
         type: array
+        maxItems: 20000
         x-omitempty: true
         items:
           type: object
