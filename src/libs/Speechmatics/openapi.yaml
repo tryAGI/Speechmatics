@@ -259,7 +259,7 @@ paths:
           200 in the job''s current state; if the job is still running when `wait`
           elapses, retry to keep waiting.
 
-          When omitted, a short default wait applies: currently 2 seconds, and it
+          When omitted, a short default wait applies: currently 5 seconds, and it
           will increase. Treat the default as an unspecified short interval rather
           than a fixed duration. Pass `wait=0` to respond immediately.'
       responses:
@@ -401,7 +401,7 @@ paths:
           within `wait`; otherwise returns the usual HTTP 404, and you can retry to
           keep waiting.
 
-          When omitted, a short default wait applies: currently 2 seconds, and it
+          When omitted, a short default wait applies: currently 5 seconds, and it
           will increase. Treat the default as an unspecified short interval rather
           than a fixed duration. Pass `wait=0` to respond immediately.'
       responses:
