@@ -15,10 +15,11 @@ namespace Speechmatics
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         /// <remarks>
         /// import { BatchClient } from "@speechmatics/batch-client";<br/>
-        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
-        /// const response = await client.listJobs();<br/>
-        /// const json = await response.json();<br/>
-        /// console.log(json);
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// const { jobs } = await client.listJobs({ limit: 10 });<br/>
+        /// for (const job of jobs) {<br/>
+        ///   console.log(job.id, job.status);<br/>
+        /// }
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Speechmatics.RetrieveJobsResponse> GetJobsAsync(
             global::System.DateTime? createdBefore = default,
@@ -37,10 +38,11 @@ namespace Speechmatics
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         /// <remarks>
         /// import { BatchClient } from "@speechmatics/batch-client";<br/>
-        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
-        /// const response = await client.listJobs();<br/>
-        /// const json = await response.json();<br/>
-        /// console.log(json);
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// const { jobs } = await client.listJobs({ limit: 10 });<br/>
+        /// for (const job of jobs) {<br/>
+        ///   console.log(job.id, job.status);<br/>
+        /// }
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.RetrieveJobsResponse>> GetJobsAsResponseAsync(
             global::System.DateTime? createdBefore = default,

@@ -122,36 +122,23 @@ paths:
               error: Internal Server Error
       x-codeSamples:
       - lang: Javascript
-        source: "import { BatchClient } from \"@speechmatics/batch-client\";\n\nconst\
-          \ client = new BatchClient({ apiKey: \"YOUR_API_KEY\" });\n\n// This is\
-          \ to get a File handle in NodeJS\n// In the browser, you can pass a File\
-          \ object from a form input, or similar\nconst blob = await openAsBlob(\"\
-          PATH_TO_FILE\");\nconst file = new File([blob], \"your_filename\");\n\n\
-          const response = await client.createTranscriptionJob({\n  file,\n  config:\
-          \ {\n    type: \"transcription\",\n    transcription_config: {\n      model:\
-          \ \"enhanced\",\n      language: \"en\",\n    },\n  },\n});\n\nconst json\
-          \ = await response.json();\nconsole.log(json);\n"
+        source: "import { openAsBlob } from \"node:fs\";\nimport { BatchClient } from\
+          \ \"@speechmatics/batch-client\";\n\nconst client = new BatchClient({ apiKey:\
+          \ \"YOUR_API_KEY\", appId: \"my-app\" });\n\n// In a browser, pass a File\
+          \ from a file input instead.\nconst file = new File([await openAsBlob(\"\
+          example.wav\")], \"example.wav\");\n\nconst { id } = await client.createTranscriptionJob(file,\
+          \ {\n  transcription_config: { language: \"en\", model: \"enhanced\" },\n\
+          });\nconsole.log(id);\n"
       - lang: Python
-        source: "from speechmatics.batch_client import BatchClient\n\n# Open the client\
-          \ using a context manager\nwith BatchClient(\"YOUR_API_KEY\") as client:\n\
-          \    job_id = client.submit_job(\n        audio=\"PATH_TO_FILE\",\n    )\n\
-          \    print(job_id)\n"
+        source: "from speechmatics.batch import Client, TranscriptionConfig\n\nwith\
+          \ Client(api_key=\"YOUR_API_KEY\") as client:\n    job = client.submit_job(\n\
+          \        \"example.wav\",\n        transcription_config=TranscriptionConfig(language=\"\
+          en\", model=\"enhanced\"),\n    )\n    print(job.id)\n"
       - lang: Shell
-        source: 'API_KEY="YOUR_API_KEY"
-
-          PATH_TO_FILE="example.wav"
-
-
-          curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
-
-          -H "Authorization: Bearer ${API_KEY}" \
-
-          -F data_file=@${PATH_TO_FILE} \
-
-          -F config=''{"type": "transcription","transcription_config": { "model":"enhanced",
-          "language": "en" }}''
-
-          '
+        source: "API_KEY=\"YOUR_API_KEY\"\n\ncurl -L -X POST \"https://eu1.asr.api.speechmatics.com/v2/jobs\"\
+          \ \\\n  -H \"Authorization: Bearer ${API_KEY}\" \\\n  -F data_file=@example.wav\
+          \ \\\n  -F config='{\"type\": \"transcription\", \"transcription_config\"\
+          : {\"language\": \"en\", \"model\": \"enhanced\"}}'\n"
     get:
       summary: List all jobs
       parameters:
@@ -211,32 +198,17 @@ paths:
               error: Internal Server Error
       x-codeSamples:
       - lang: Javascript
-        source: 'import { BatchClient } from "@speechmatics/batch-client";
-
-
-          const client = new BatchClient({ apiKey: "YOUR_API_KEY" });
-
-
-          const response = await client.listJobs();
-
-          const json = await response.json();
-
-          console.log(json);
-
-          '
+        source: "import { BatchClient } from \"@speechmatics/batch-client\";\n\nconst\
+          \ client = new BatchClient({ apiKey: \"YOUR_API_KEY\", appId: \"my-app\"\
+          \ });\n\nconst { jobs } = await client.listJobs({ limit: 10 });\nfor (const\
+          \ job of jobs) {\n  console.log(job.id, job.status);\n}\n"
       - lang: Python
-        source: "from speechmatics.batch_client import BatchClient\n\nwith BatchClient(\"\
-          YOUR_API_KEY\") as client:\n    jobs_list = client.list_jobs()\n\n    #\
-          \ Here, we get and print out the name\n    # of the first job if it exists\n\
-          \    if len(jobs_list):\n        first_job_name = jobs_list[\"jobs\"][0][\"\
-          data_name\"]\n        print(first_job_name)\n"
+        source: "from speechmatics.batch import Client\n\nwith Client(api_key=\"YOUR_API_KEY\"\
+          ) as client:\n    for job in client.list_jobs(limit=10):\n        print(job.id,\
+          \ job.status)\n"
       - lang: Shell
-        source: 'API_KEY="YOUR_API_KEY"
-
-
-          curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
-
-          -H "Authorization: Bearer ${API_KEY}"'
+        source: "API_KEY=\"YOUR_API_KEY\"\n\ncurl -L -X GET \"https://eu1.asr.api.speechmatics.com/v2/jobs?limit=10\"\
+          \ \\\n  -H \"Authorization: Bearer ${API_KEY}\"\n"
   /jobs/{jobid}:
     get:
       summary: Get job details
@@ -301,6 +273,27 @@ paths:
             application/json:
               code: 500
               error: Internal Server Error
+      x-codeSamples:
+      - lang: Javascript
+        source: 'import { BatchClient } from "@speechmatics/batch-client";
+
+
+          const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app"
+          });
+
+
+          const { job } = await client.getJob("JOB_ID");
+
+          console.log(job.status);
+
+          '
+      - lang: Python
+        source: "from speechmatics.batch import Client\n\nwith Client(api_key=\"YOUR_API_KEY\"\
+          ) as client:\n    job = client.get_job_info(\"JOB_ID\")\n    print(job.status)\n"
+      - lang: Shell
+        source: "API_KEY=\"YOUR_API_KEY\"\nJOB_ID=\"JOB_ID\"\n\ncurl -L -X GET \"\
+          https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}\" \\\n  -H \"Authorization:\
+          \ Bearer ${API_KEY}\"\n"
     delete:
       summary: Delete a job
       description: Delete a job and remove all associated resources.
@@ -365,6 +358,27 @@ paths:
             application/json:
               code: 500
               error: Internal Server Error
+      x-codeSamples:
+      - lang: Javascript
+        source: 'import { BatchClient } from "@speechmatics/batch-client";
+
+
+          const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app"
+          });
+
+
+          const { job } = await client.deleteJob("JOB_ID");
+
+          console.log(job.status);
+
+          '
+      - lang: Python
+        source: "from speechmatics.batch import Client\n\nwith Client(api_key=\"YOUR_API_KEY\"\
+          ) as client:\n    client.delete_job(\"JOB_ID\")\n"
+      - lang: Shell
+        source: "API_KEY=\"YOUR_API_KEY\"\nJOB_ID=\"JOB_ID\"\n\ncurl -L -X DELETE\
+          \ \"https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}\" \\\n  -H \"\
+          Authorization: Bearer ${API_KEY}\"\n"
   /jobs/{jobid}/transcript:
     get:
       summary: Get the transcript for a transcription job
@@ -521,6 +535,27 @@ paths:
             application/json:
               code: 500
               error: Internal Server Error
+      x-codeSamples:
+      - lang: Javascript
+        source: 'import { BatchClient } from "@speechmatics/batch-client";
+
+
+          const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app"
+          });
+
+
+          const transcript = await client.getJobResult("JOB_ID", "text");
+
+          console.log(transcript);
+
+          '
+      - lang: Python
+        source: "from speechmatics.batch import Client\n\nwith Client(api_key=\"YOUR_API_KEY\"\
+          ) as client:\n    transcript = client.get_transcript(\"JOB_ID\")\n    print(transcript.transcript_text)\n"
+      - lang: Shell
+        source: "API_KEY=\"YOUR_API_KEY\"\nJOB_ID=\"JOB_ID\"\n\ncurl -L -X GET \"\
+          https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt\"\
+          \ \\\n  -H \"Authorization: Bearer ${API_KEY}\"\n"
   /jobs/{jobid}/log:
     get:
       summary: Get the log file for a job.
@@ -658,6 +693,10 @@ paths:
           description: Internal Server Error
           schema:
             $ref: '#/definitions/ErrorResponse'
+      x-codeSamples:
+      - lang: Shell
+        source: "API_KEY=\"YOUR_API_KEY\"\n\ncurl -L -X GET \"https://eu1.asr.api.speechmatics.com/v2/usage?since=2026-10-01&until=2026-10-31\"\
+          \ \\\n  -H \"Authorization: Bearer ${API_KEY}\"\n"
 definitions:
   ErrorResponse:
     type: object

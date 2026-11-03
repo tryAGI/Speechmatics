@@ -54,6 +54,12 @@ namespace Speechmatics
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
+        /// <remarks>
+        /// import { BatchClient } from "@speechmatics/batch-client";<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// const transcript = await client.getJobResult("JOB_ID", "text");<br/>
+        /// console.log(transcript);
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<string> GetJobsByJobidTranscriptAsTextAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,
@@ -80,6 +86,12 @@ namespace Speechmatics
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
+        /// <remarks>
+        /// import { BatchClient } from "@speechmatics/batch-client";<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// const transcript = await client.getJobResult("JOB_ID", "text");<br/>
+        /// console.log(transcript);
+        /// </remarks>
         public async global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<string>> GetJobsByJobidTranscriptAsTextAsResponseAsync(
             string jobid,
             global::Speechmatics.GetJobsTranscriptFormat? format = default,

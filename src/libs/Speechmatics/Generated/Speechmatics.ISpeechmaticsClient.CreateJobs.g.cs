@@ -15,24 +15,15 @@ namespace Speechmatics
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         /// <remarks>
+        /// import { openAsBlob } from "node:fs";<br/>
         /// import { BatchClient } from "@speechmatics/batch-client";<br/>
-        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
-        /// // This is to get a File handle in NodeJS<br/>
-        /// // In the browser, you can pass a File object from a form input, or similar<br/>
-        /// const blob = await openAsBlob("PATH_TO_FILE");<br/>
-        /// const file = new File([blob], "your_filename");<br/>
-        /// const response = await client.createTranscriptionJob({<br/>
-        ///   file,<br/>
-        ///   config: {<br/>
-        ///     type: "transcription",<br/>
-        ///     transcription_config: {<br/>
-        ///       model: "enhanced",<br/>
-        ///       language: "en",<br/>
-        ///     },<br/>
-        ///   },<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// // In a browser, pass a File from a file input instead.<br/>
+        /// const file = new File([await openAsBlob("example.wav")], "example.wav");<br/>
+        /// const { id } = await client.createTranscriptionJob(file, {<br/>
+        ///   transcription_config: { language: "en", model: "enhanced" },<br/>
         /// });<br/>
-        /// const json = await response.json();<br/>
-        /// console.log(json);
+        /// console.log(id);
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Speechmatics.CreateJobResponse> CreateJobsAsync(
 
@@ -53,24 +44,15 @@ namespace Speechmatics
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Speechmatics.ApiException"></exception>
         /// <remarks>
+        /// import { openAsBlob } from "node:fs";<br/>
         /// import { BatchClient } from "@speechmatics/batch-client";<br/>
-        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY" });<br/>
-        /// // This is to get a File handle in NodeJS<br/>
-        /// // In the browser, you can pass a File object from a form input, or similar<br/>
-        /// const blob = await openAsBlob("PATH_TO_FILE");<br/>
-        /// const file = new File([blob], "your_filename");<br/>
-        /// const response = await client.createTranscriptionJob({<br/>
-        ///   file,<br/>
-        ///   config: {<br/>
-        ///     type: "transcription",<br/>
-        ///     transcription_config: {<br/>
-        ///       model: "enhanced",<br/>
-        ///       language: "en",<br/>
-        ///     },<br/>
-        ///   },<br/>
+        /// const client = new BatchClient({ apiKey: "YOUR_API_KEY", appId: "my-app" });<br/>
+        /// // In a browser, pass a File from a file input instead.<br/>
+        /// const file = new File([await openAsBlob("example.wav")], "example.wav");<br/>
+        /// const { id } = await client.createTranscriptionJob(file, {<br/>
+        ///   transcription_config: { language: "en", model: "enhanced" },<br/>
         /// });<br/>
-        /// const json = await response.json();<br/>
-        /// console.log(json);
+        /// console.log(id);
         /// </remarks>
         global::System.Threading.Tasks.Task<global::Speechmatics.AutoSDKHttpResponse<global::Speechmatics.CreateJobResponse>> CreateJobsAsResponseAsync(
 
