@@ -9,7 +9,7 @@ namespace Speechmatics
     public sealed partial class SentimentSegment
     {
         /// <summary>
-        /// Represents the transcript of the analysed segment
+        /// Represents the transcript of the analyzed segment
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("text")]
         public string? Text { get; set; }
@@ -61,7 +61,7 @@ namespace Speechmatics
         /// Initializes a new instance of the <see cref="SentimentSegment" /> class.
         /// </summary>
         /// <param name="text">
-        /// Represents the transcript of the analysed segment
+        /// Represents the transcript of the analyzed segment
         /// </param>
         /// <param name="sentiment">
         /// The assigned sentiment to the segment, which can be positive, neutral or negative

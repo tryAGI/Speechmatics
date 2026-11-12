@@ -4,7 +4,7 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// Specific model to use in transcription (previously called operating point).
+    ///
     /// </summary>
     public enum Model
     {
@@ -16,6 +16,10 @@ namespace Speechmatics
         ///
         /// </summary>
         Melia1,
+        /// <summary>
+        ///
+        /// </summary>
+        Oak1,
         /// <summary>
         ///
         /// </summary>
@@ -36,6 +40,7 @@ namespace Speechmatics
             {
                 Model.Enhanced => "enhanced",
                 Model.Melia1 => "melia-1",
+                Model.Oak1 => "oak-1",
                 Model.Standard => "standard",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -49,6 +54,7 @@ namespace Speechmatics
             {
                 "enhanced" => Model.Enhanced,
                 "melia-1" => Model.Melia1,
+                "oak-1" => Model.Oak1,
                 "standard" => Model.Standard,
                 _ => null,
             };

@@ -4,10 +4,9 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// A confidence score in the range of 0-1,<br/>
-    /// indicating the model's certainty in the predicted sentiment,
+    /// Mapping from languages codes to their writing direction, left-to-right or right-to-left
     /// </summary>
-    public sealed partial class SentimentSegmentConfidence
+    public sealed partial class LanguagePackInfoPerLanguageWritingDirection
     {
 
         /// <summary>

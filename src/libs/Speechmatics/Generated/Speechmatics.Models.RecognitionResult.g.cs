@@ -62,6 +62,12 @@ namespace Speechmatics
         public global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? SpokenForm { get; set; }
 
         /// <summary>
+        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with the default entity detection, or the specific advanced entity type (e.g. 'name_given', 'dob') with advanced entity detection or redaction.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("entity_class")]
+        public string? EntityClass { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("alternatives")]
@@ -97,6 +103,9 @@ namespace Speechmatics
         /// </param>
         /// <param name="writtenForm"></param>
         /// <param name="spokenForm"></param>
+        /// <param name="entityClass">
+        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with the default entity detection, or the specific advanced entity type (e.g. 'name_given', 'dob') with advanced entity detection or redaction.
+        /// </param>
         /// <param name="alternatives"></param>
         /// <param name="attachesTo">
         /// Attachment direction of the punctuation mark. This only applies to punctuation marks. This information can be used to produce a well-formed text representation by placing the `word_delimiter` from `language_pack_info` on the correct side of the punctuation mark.
@@ -113,6 +122,7 @@ namespace Speechmatics
             bool? isEos,
             global::System.Collections.Generic.IList<global::Speechmatics.WrittenFormRecognitionResult>? writtenForm,
             global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? spokenForm,
+            string? entityClass,
             global::System.Collections.Generic.IList<global::Speechmatics.RecognitionAlternative>? alternatives,
             global::Speechmatics.RecognitionResultAttachesTo? attachesTo)
         {
@@ -124,6 +134,7 @@ namespace Speechmatics
             this.Type = type;
             this.WrittenForm = writtenForm;
             this.SpokenForm = spokenForm;
+            this.EntityClass = entityClass;
             this.Alternatives = alternatives;
             this.AttachesTo = attachesTo;
         }
