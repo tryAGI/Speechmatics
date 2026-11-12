@@ -32,6 +32,13 @@ namespace Speechmatics
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("model")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.ModelJsonConverter))]
+        public global::Speechmatics.Model? Model { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("operating_point")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Speechmatics.JsonConverters.OperatingPointJsonConverter))]
         public global::Speechmatics.OperatingPoint? OperatingPoint { get; set; }
@@ -70,6 +77,7 @@ namespace Speechmatics
         /// <param name="language">
         /// Example: en
         /// </param>
+        /// <param name="model"></param>
         /// <param name="operatingPoint"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -80,11 +88,13 @@ namespace Speechmatics
             global::Speechmatics.JobMode mode,
             global::Speechmatics.JobType type,
             string? language,
+            global::Speechmatics.Model? model,
             global::Speechmatics.OperatingPoint? operatingPoint)
         {
             this.Mode = mode;
             this.Type = type;
             this.Language = language;
+            this.Model = model;
             this.OperatingPoint = operatingPoint;
             this.Count = count;
             this.DurationHrs = durationHrs;

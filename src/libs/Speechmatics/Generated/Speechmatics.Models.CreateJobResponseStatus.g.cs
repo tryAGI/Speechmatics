@@ -4,24 +4,24 @@
 namespace Speechmatics
 {
     /// <summary>
-    /// **Note**: Only available on SaaS on Cloud. Present only when the `wait` query parameter is set. Reports the outcome of the wait, which is distinct from the job lifecycle status returned by `GET /jobs/{jobid}`. * `created` - the job was created and is still running, or `wait` elapsed before it finished. * `done` - the job finished; the transcript is embedded under the requested `format` key when available. * `rejected` - the job could not be processed. * `deleted` - the job was deleted before it could finish.
+    /// The outcome of the request. Only present when the `wait` query parameter was specified on the request; when `wait` is omitted the field is absent and the legacy response (just `id`) is returned. * `created` - The job record was created, but the wait elapsed before the job reached a terminal state. The job can still be polled or retrieved as usual. * `done` - The job finished. The result is embedded under the key named after the requested `format` when available; if that field is absent (e.g. the format was not produced, or the result is not yet readable), fetch it from `GET /jobs/{id}/transcript`. * `rejected` - The job was created but could not be processed. * `deleted` - Theoretical race condition handling.
     /// </summary>
     public enum CreateJobResponseStatus
     {
         /// <summary>
-        /// Only available on SaaS on Cloud. Present only when the `wait` query parameter is set. Reports the outcome of the wait, which is distinct from the job lifecycle status returned by `GET /jobs/{jobid}`. * `created` - the job was created and is still running, or `wait` elapsed before it finished. * `done` - the job finished; the transcript is embedded under the requested `format` key when available. * `rejected` - the job could not be processed. * `deleted` - the job was deleted before it could finish.
+        ///
         /// </summary>
         Created,
         /// <summary>
-        /// Only available on SaaS on Cloud. Present only when the `wait` query parameter is set. Reports the outcome of the wait, which is distinct from the job lifecycle status returned by `GET /jobs/{jobid}`. * `created` - the job was created and is still running, or `wait` elapsed before it finished. * `done` - the job finished; the transcript is embedded under the requested `format` key when available. * `rejected` - the job could not be processed. * `deleted` - the job was deleted before it could finish.
+        ///
         /// </summary>
         Deleted,
         /// <summary>
-        /// Only available on SaaS on Cloud. Present only when the `wait` query parameter is set. Reports the outcome of the wait, which is distinct from the job lifecycle status returned by `GET /jobs/{jobid}`. * `created` - the job was created and is still running, or `wait` elapsed before it finished. * `done` - the job finished; the transcript is embedded under the requested `format` key when available. * `rejected` - the job could not be processed. * `deleted` - the job was deleted before it could finish.
+        ///
         /// </summary>
         Done,
         /// <summary>
-        /// Only available on SaaS on Cloud. Present only when the `wait` query parameter is set. Reports the outcome of the wait, which is distinct from the job lifecycle status returned by `GET /jobs/{jobid}`. * `created` - the job was created and is still running, or `wait` elapsed before it finished. * `done` - the job finished; the transcript is embedded under the requested `format` key when available. * `rejected` - the job could not be processed. * `deleted` - the job was deleted before it could finish.
+        ///
         /// </summary>
         Rejected,
     }

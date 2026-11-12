@@ -19,6 +19,10 @@ namespace Speechmatics
         /// <summary>
         ///
         /// </summary>
+        Oak1,
+        /// <summary>
+        ///
+        /// </summary>
         Standard,
     }
 
@@ -36,6 +40,7 @@ namespace Speechmatics
             {
                 OperatingPoint.Enhanced => "enhanced",
                 OperatingPoint.Melia1 => "melia-1",
+                OperatingPoint.Oak1 => "oak-1",
                 OperatingPoint.Standard => "standard",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -49,6 +54,7 @@ namespace Speechmatics
             {
                 "enhanced" => OperatingPoint.Enhanced,
                 "melia-1" => OperatingPoint.Melia1,
+                "oak-1" => OperatingPoint.Oak1,
                 "standard" => OperatingPoint.Standard,
                 _ => null,
             };

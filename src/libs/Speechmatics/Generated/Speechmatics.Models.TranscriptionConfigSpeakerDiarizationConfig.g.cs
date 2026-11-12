@@ -21,13 +21,13 @@ namespace Speechmatics
         public float? SpeakerSensitivity { get; set; }
 
         /// <summary>
-        /// If true, speaker identifiers will be returned at the end of transcript.
+        /// If true, speaker identifiers will be returned at the end of transcript. Not supported by Melia 1 and Oak 1.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("get_speakers")]
         public bool? GetSpeakers { get; set; }
 
         /// <summary>
-        /// Use this option to provide speaker labels linked to their speaker identifiers. When passed, the transcription system will tag spoken words in the transcript with the provided speaker labels whenever any of the specified speakers is detected in the audio. A maximum of 50 speakers identifiers across all speakers can be provided.
+        /// Use this option to provide speaker labels linked to their speaker identifiers. When passed, the transcription system will tag spoken words in the transcript with the provided speaker labels whenever any of the specified speakers is detected in the audio. A maximum of 50 speakers identifiers across all speakers can be provided. Not supported by Melia 1 and Oak 1.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("speakers")]
         public global::System.Collections.Generic.IList<global::Speechmatics.SpeakersInputItem>? Speakers { get; set; }
@@ -48,10 +48,10 @@ namespace Speechmatics
         /// Controls how sensitive the algorithm is in terms of keeping similar speakers separate, as opposed to combining them into a single speaker.  Higher values will typically lead to more speakers, as the degree of difference between speakers in order to allow them to remain distinct will be lower.  A lower value for this parameter will conversely guide the algorithm towards being less sensitive in terms of retaining similar speakers, and as such may lead to fewer speakers overall.  The default is 0.5.
         /// </param>
         /// <param name="getSpeakers">
-        /// If true, speaker identifiers will be returned at the end of transcript.
+        /// If true, speaker identifiers will be returned at the end of transcript. Not supported by Melia 1 and Oak 1.
         /// </param>
         /// <param name="speakers">
-        /// Use this option to provide speaker labels linked to their speaker identifiers. When passed, the transcription system will tag spoken words in the transcript with the provided speaker labels whenever any of the specified speakers is detected in the audio. A maximum of 50 speakers identifiers across all speakers can be provided.
+        /// Use this option to provide speaker labels linked to their speaker identifiers. When passed, the transcription system will tag spoken words in the transcript with the provided speaker labels whenever any of the specified speakers is detected in the audio. A maximum of 50 speakers identifiers across all speakers can be provided. Not supported by Melia 1 and Oak 1.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

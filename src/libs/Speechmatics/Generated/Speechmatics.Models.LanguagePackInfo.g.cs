@@ -9,6 +9,18 @@ namespace Speechmatics
     public sealed partial class LanguagePackInfo
     {
         /// <summary>
+        /// Mapping from language codes to their word delimiters
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("per_language_word_delimiters")]
+        public global::System.Collections.Generic.Dictionary<string, string>? PerLanguageWordDelimiters { get; set; }
+
+        /// <summary>
+        /// Mapping from languages codes to their writing direction, left-to-right or right-to-left
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("per_language_writing_direction")]
+        public global::System.Collections.Generic.Dictionary<string, global::Speechmatics.LanguagePackInfoPerLanguageWritingDirection2>? PerLanguageWritingDirection { get; set; }
+
+        /// <summary>
         /// Full descriptive name of the language, e.g. 'Japanese'.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("language_description")]
@@ -52,6 +64,12 @@ namespace Speechmatics
         /// <param name="wordDelimiter">
         /// The character to use to separate words.
         /// </param>
+        /// <param name="perLanguageWordDelimiters">
+        /// Mapping from language codes to their word delimiters
+        /// </param>
+        /// <param name="perLanguageWritingDirection">
+        /// Mapping from languages codes to their writing direction, left-to-right or right-to-left
+        /// </param>
         /// <param name="languageDescription">
         /// Full descriptive name of the language, e.g. 'Japanese'.
         /// </param>
@@ -69,11 +87,15 @@ namespace Speechmatics
 #endif
         public LanguagePackInfo(
             string wordDelimiter,
+            global::System.Collections.Generic.Dictionary<string, string>? perLanguageWordDelimiters,
+            global::System.Collections.Generic.Dictionary<string, global::Speechmatics.LanguagePackInfoPerLanguageWritingDirection2>? perLanguageWritingDirection,
             string? languageDescription,
             global::Speechmatics.LanguagePackInfoWritingDirection? writingDirection,
             bool? itn,
             bool? adapted)
         {
+            this.PerLanguageWordDelimiters = perLanguageWordDelimiters;
+            this.PerLanguageWritingDirection = perLanguageWritingDirection;
             this.LanguageDescription = languageDescription;
             this.WordDelimiter = wordDelimiter ?? throw new global::System.ArgumentNullException(nameof(wordDelimiter));
             this.WritingDirection = writingDirection;
