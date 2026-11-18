@@ -84,25 +84,25 @@ namespace Speechmatics
         public global::System.Collections.Generic.IList<string>? ChannelDiarizationLabels { get; set; }
 
         /// <summary>
-        /// Include additional 'entity' objects in the transcription results (e.g. dates, numbers) and their original spoken form. These entities are interleaved with other types of results. The concatenation of these words is represented as a single entity with the concatenated written form present in the 'content' field. The entities contain a 'spoken_form' field, which can be used in place of the corresponding 'word' type results, in case a spoken form is preferred to a written form. They also contain a 'written_form', which can be used instead of the entity, if you want a breakdown of the words without spaces. They can still contain non-breaking spaces and other special whitespace characters, as they are considered part of the word for the formatting output. In case of a written_form, the individual word times are estimated and might not be accurate if the order of the words in the written form does not correspond to the order they were actually spoken (such as 'one hundred million dollars' and '$100 million').
+        /// Include additional 'entity' objects in the transcription results, interleaved with the other types of results. With smart formatting entities (e.g. dates, numbers; Standard and Enhanced models only), the concatenation of these words is represented as a single entity with the concatenated written form present in the 'content' field. The entities contain a 'spoken_form' field, which can be used in place of the corresponding 'word' type results, in case a spoken form is preferred to a written form. They also contain a 'written_form', which can be used instead of the entity, if you want a breakdown of the words without spaces. They can still contain non-breaking spaces and other special whitespace characters, as they are considered part of the word for the formatting output. In case of a written_form, the individual word times are estimated and might not be accurate if the order of the words in the written form does not correspond to the order they were actually spoken (such as 'one hundred million dollars' and '$100 million'). With `entities_config.detect_advanced_entities: true`, Entity Detection is used instead (e.g. names, dates of birth, credit card numbers), and spoken and written forms are not available. On Melia 1 and Oak 1, `enable_entities` is only accepted together with `entities_config.detect_advanced_entities: true`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_entities")]
         public bool? EnableEntities { get; set; }
 
         /// <summary>
-        /// Configuration for Advanced Entities Detection.
+        /// Configuration for Entity Detection.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entities_config")]
         public global::Speechmatics.TranscriptionConfigEntitiesConfig? EntitiesConfig { get; set; }
 
         /// <summary>
-        /// Redact advanced entities throughout the transcript: matching entity values are replaced with a consistent label based on the `entity_class` (e.g. "[name_given]"). Must be set together with `redaction_config.entity_classes`. If `enable_entities` is true, `entities_config.detect_advanced_entities` must also be true (redaction relies on advanced entity detection); if `enable_entities` is false or omitted, `enable_redaction` can be used on its own. Spoken and written forms are not available when redaction is enabled.
+        /// PII Redaction: redact Entity Detection entities throughout the transcript. Matching entity values are replaced with a consistent label based on the `entity_class` (e.g. "[name_given]"). Must be set together with `redaction_config.entity_classes`. If `enable_entities` is true, `entities_config.detect_advanced_entities` must also be true (PII Redaction relies on Entity Detection); if `enable_entities` is false or omitted, `enable_redaction` can be used on its own. Spoken and written forms are not available when redaction is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("enable_redaction")]
         public bool? EnableRedaction { get; set; }
 
         /// <summary>
-        /// Configuration for redaction. Required, and only applied, when `enable_redaction` is true.
+        /// Configuration for PII Redaction. Required, and only applied, when `enable_redaction` is true.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("redaction_config")]
         public global::Speechmatics.TranscriptionConfigRedactionConfig? RedactionConfig { get; set; }
@@ -179,16 +179,16 @@ namespace Speechmatics
         /// Transcript labels to use when using collating separate input channels.
         /// </param>
         /// <param name="enableEntities">
-        /// Include additional 'entity' objects in the transcription results (e.g. dates, numbers) and their original spoken form. These entities are interleaved with other types of results. The concatenation of these words is represented as a single entity with the concatenated written form present in the 'content' field. The entities contain a 'spoken_form' field, which can be used in place of the corresponding 'word' type results, in case a spoken form is preferred to a written form. They also contain a 'written_form', which can be used instead of the entity, if you want a breakdown of the words without spaces. They can still contain non-breaking spaces and other special whitespace characters, as they are considered part of the word for the formatting output. In case of a written_form, the individual word times are estimated and might not be accurate if the order of the words in the written form does not correspond to the order they were actually spoken (such as 'one hundred million dollars' and '$100 million').
+        /// Include additional 'entity' objects in the transcription results, interleaved with the other types of results. With smart formatting entities (e.g. dates, numbers; Standard and Enhanced models only), the concatenation of these words is represented as a single entity with the concatenated written form present in the 'content' field. The entities contain a 'spoken_form' field, which can be used in place of the corresponding 'word' type results, in case a spoken form is preferred to a written form. They also contain a 'written_form', which can be used instead of the entity, if you want a breakdown of the words without spaces. They can still contain non-breaking spaces and other special whitespace characters, as they are considered part of the word for the formatting output. In case of a written_form, the individual word times are estimated and might not be accurate if the order of the words in the written form does not correspond to the order they were actually spoken (such as 'one hundred million dollars' and '$100 million'). With `entities_config.detect_advanced_entities: true`, Entity Detection is used instead (e.g. names, dates of birth, credit card numbers), and spoken and written forms are not available. On Melia 1 and Oak 1, `enable_entities` is only accepted together with `entities_config.detect_advanced_entities: true`.
         /// </param>
         /// <param name="entitiesConfig">
-        /// Configuration for Advanced Entities Detection.
+        /// Configuration for Entity Detection.
         /// </param>
         /// <param name="enableRedaction">
-        /// Redact advanced entities throughout the transcript: matching entity values are replaced with a consistent label based on the `entity_class` (e.g. "[name_given]"). Must be set together with `redaction_config.entity_classes`. If `enable_entities` is true, `entities_config.detect_advanced_entities` must also be true (redaction relies on advanced entity detection); if `enable_entities` is false or omitted, `enable_redaction` can be used on its own. Spoken and written forms are not available when redaction is enabled.
+        /// PII Redaction: redact Entity Detection entities throughout the transcript. Matching entity values are replaced with a consistent label based on the `entity_class` (e.g. "[name_given]"). Must be set together with `redaction_config.entity_classes`. If `enable_entities` is true, `entities_config.detect_advanced_entities` must also be true (PII Redaction relies on Entity Detection); if `enable_entities` is false or omitted, `enable_redaction` can be used on its own. Spoken and written forms are not available when redaction is enabled.
         /// </param>
         /// <param name="redactionConfig">
-        /// Configuration for redaction. Required, and only applied, when `enable_redaction` is true.
+        /// Configuration for PII Redaction. Required, and only applied, when `enable_redaction` is true.
         /// </param>
         /// <param name="maxDelayMode">
         /// Whether or not to enable flexible endpointing and allow the entity to continue to be spoken.

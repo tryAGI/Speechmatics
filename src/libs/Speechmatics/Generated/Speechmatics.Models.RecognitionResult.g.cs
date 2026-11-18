@@ -62,7 +62,7 @@ namespace Speechmatics
         public global::System.Collections.Generic.IList<global::Speechmatics.SpokenFormRecognitionResult>? SpokenForm { get; set; }
 
         /// <summary>
-        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with the default entity detection, or the specific advanced entity type (e.g. 'name_given', 'dob') with advanced entity detection or redaction.
+        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with smart formatting entities, or the specific Entity Detection class (e.g. 'name_given', 'dob') with Entity Detection or PII Redaction.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entity_class")]
         public string? EntityClass { get; set; }
@@ -104,7 +104,7 @@ namespace Speechmatics
         /// <param name="writtenForm"></param>
         /// <param name="spokenForm"></param>
         /// <param name="entityClass">
-        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with the default entity detection, or the specific advanced entity type (e.g. 'name_given', 'dob') with advanced entity detection or redaction.
+        /// For 'entity' results only, the class the entity has been formatted as, e.g. 'date', 'money', 'number' with smart formatting entities, or the specific Entity Detection class (e.g. 'name_given', 'dob') with Entity Detection or PII Redaction.
         /// </param>
         /// <param name="alternatives"></param>
         /// <param name="attachesTo">
